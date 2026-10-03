@@ -1,35 +1,60 @@
-START PRACY W TERMUXIE — FIX SPACEBOOK
+# Start pracy w Termuxie — Fix Spacebook
 
-START
+## Start sesji
 
-1. Otwórz Termux.
-2. Wpisz:
+Otwórz Termux i wykonaj:
+
+```bash
 cd ~/fix-spacebook
-3. Wpisz:
 git pull
-4. Wpisz:
 git status
+```
 
-EDYCJA PLIKU
+Jeżeli Git pokazuje, że gałąź jest aktualna, możesz rozpocząć pracę.
 
-Aby utworzyć albo edytować dokument, wpisz:
+## Edycja dokumentu
+
+Nowy lub istniejący dokument otworzysz poleceniem:
+
+```bash
 nano docs/NAZWA_PLIKU.md
+```
 
-ZAPIS NA GITHUB
+W `nano`:
+
+- zapis: `CTRL` + `O`, następnie `Enter`,
+- wyjście: `CTRL` + `X`,
+- wyszukiwanie: `CTRL` + `W`.
+
+Na części klawiatur w Termuxie `Volume Down` działa jako `Ctrl`.
+
+## Zapis na GitHub
 
 Po edycji wykonaj kolejno:
+
+```bash
+git status
+git diff
 git add docs/NAZWA_PLIKU.md
 git commit -m "Opis zmiany"
 git push
 git status
+```
 
-KONIEC PRACY
+Nie wpisuj ręcznie tekstu z wyniku Git, np. `new file:` albo `nothing to commit`.
 
-Najpierw wpisz:
+## Koniec pracy
+
+Przed wyjściem sprawdź:
+
+```bash
 git status
+```
 
-Jeżeli katalog jest czysty i aktualny, wpisz:
+Gdy katalog roboczy jest czysty i gałąź jest aktualna, zamknij sesję:
+
+```bash
 exit
+```
 
-Polecenie exit zamyka sesję Termuxa.
-Nie usuwa plików ani repozytorium.
+`exit` zamyka bieżącą sesję Termuxa. Nie usuwa plików, repozytorium ani commitów.
