@@ -1,27 +1,38 @@
 # Lista zadań i priorytety — Fix Spacebook
 
-## Zasady priorytetów
+## P0 — konieczne do wersji 1
 
-- **P0** — konieczne do ukończenia pierwszej wersji.
-- **P1** — ważne po ukończeniu podstaw.
-- **P2** — pomysły do rozważenia w przyszłości.
-
-## P0 — pierwsza wersja
-
-- [x] Utworzenie prywatnego repozytorium GitHub.
-- [x] Konfiguracja pracy w Termuxie i połączenia SSH z GitHub.
-- [x] Utworzenie dokumentu wizji projektu.
-- [x] Utworzenie dokumentu zakresu pierwszej wersji.
-- [ ] Utworzenie mapy plików i katalogów repozytorium.
-- [ ] Utworzenie zasad bezpieczeństwa projektu.
-- [ ] Utworzenie instrukcji rozpoczęcia pracy w Termuxie.
-- [ ] Sprawdzenie struktury dokumentacji i nazw plików.
-- [ ] Uzupełnienie głównego pliku `README.md`.
+- [x] Prywatne repozytorium GitHub.
+- [x] Połączenie SSH z GitHub w Termuxie.
+- [x] Dokument wizji projektu.
+- [x] Dokument zakresu pierwszej wersji.
+- [x] Mapa plików i katalogów.
+- [x] Zasady bezpieczeństwa.
+- [x] Instrukcja startu w Termuxie.
+- [ ] Sprawdzenie kompletności dokumentacji.
+- [ ] Aktualizacja pliku README.md.
 - [ ] Ostateczny przegląd wersji 1.
 
-## P1 — po wersji pierwszej
+## P1 — po wersji 1
 
-- [ ] Stworzenie szablonu notatki projektowej.
-- [ ] Stworzenie szablonu zadania.
-- [ ] Dodanie katalogu dla pomysłów i researchu.
-- [ ] Dodanie katalogu dla kodu i ek
+- [ ] Szablon notatki projektowej.
+- [ ] Szablon zadania.
+- [ ] Katalog dla pomysłów i researchu.
+- [ ] Katalog dla kodu i eksperymentów.
+- [ ] Proste skrypty pomocnicze w Pythonie.
+- [ ] Procedura kopii zapasowej.
+
+## P2 — dalszy rozwój
+
+- [ ] Aplikacja webowa lub PWA.
+- [ ] Wyszukiwanie pełnotekstowe notatek.
+- [ ] Integracja z AI i LLM.
+- [ ] Automatyzacje w Pythonie.
+- [ ] Integracja z kalendarzem oraz zadaniami.
+- [ ] Moduły OSINT i cyberbezpieczeństwa.
+
+## Najbliższa kolejność
+
+1. Sprawdzenie dokumentacji.
+2. Aktualizacja README.md.
+3. Ostateczny przegląd wersji 1.
