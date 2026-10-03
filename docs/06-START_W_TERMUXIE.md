@@ -1,10 +1,35 @@
-# Start pracy w Termuxie — Fix Spacebook
+START PRACY W TERMUXIE — FIX SPACEBOOK
 
-## 1. Cel instrukcji
+START
 
-Ta instrukcja pozwala szybko wrócić do pracy nad projektem Fix Spacebook z telefonu z Androidem.
+1. Otwórz Termux.
+2. Wpisz:
+cd ~/fix-spacebook
+3. Wpisz:
+git pull
+4. Wpisz:
+git status
 
-Repozytorium lokalne znajduje się w:
+EDYCJA PLIKU
 
-```text
-~/fix-spacebook
+Aby utworzyć albo edytować dokument, wpisz:
+nano docs/NAZWA_PLIKU.md
+
+ZAPIS NA GITHUB
+
+Po edycji wykonaj kolejno:
+git add docs/NAZWA_PLIKU.md
+git commit -m "Opis zmiany"
+git push
+git status
+
+KONIEC PRACY
+
+Najpierw wpisz:
+git status
+
+Jeżeli katalog jest czysty i aktualny, wpisz:
+exit
+
+Polecenie exit zamyka sesję Termuxa.
+Nie usuwa plików ani repozytorium.
