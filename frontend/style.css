@@ -219,3 +219,76 @@ h1 {
     width: 100%;
   }
 }
+
+.request-section {
+  border-top: 1px solid var(--border);
+  padding: 56px 0 72px;
+}
+
+.request-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  margin-top: 28px;
+  max-width: 760px;
+  padding: 24px;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  color: var(--navy);
+  display: block;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: #ffffff;
+  border: 1px solid #9fb3c8;
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+  padding: 12px;
+  width: 100%;
+}
+
+.form-field textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.18);
+  outline: none;
+}
+
+.form-row {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.field-help {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 7px 0 0;
+}
+
+@media (max-width: 600px) {
+  .request-form {
+    padding: 18px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

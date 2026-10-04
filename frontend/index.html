@@ -25,9 +25,9 @@
       </p>
 
       <div class="actions" aria-label="Wybierz dalszy krok">
-        <button class="button button-primary" type="button" data-action="client">
+        <a class="button button-primary" href="#dodaj-zlecenie">
           Szukam pomocy
-        </button>
+        </a>
         <button class="button button-secondary" type="button" data-action="provider">
           Chce oferowac uslugi
         </button>
@@ -60,6 +60,75 @@
           <p>Pomoc przy zwierzetach i codziennych sprawach.</p>
         </article>
       </div>
+    </section>
+
+    <section id="dodaj-zlecenie" class="request-section" aria-labelledby="request-title">
+      <div class="section-heading">
+        <p class="eyebrow">Dla osoby szukajacej pomocy</p>
+        <h2 id="request-title">Dodaj zlecenie</h2>
+        <p class="lead">
+          Opisz, czego potrzebujesz. W kolejnym etapie zlecenie zostanie polaczone z wykonawcami.
+        </p>
+      </div>
+
+      <form id="request-form" class="request-form">
+        <div class="form-field">
+          <label for="category">Kategoria uslugi</label>
+          <select id="category" name="category" required>
+            <option value="">Wybierz kategorie</option>
+            <option>Naprawy samochodow</option>
+            <option>Naprawy rowerow</option>
+            <option>Naprawy AGD i RTV</option>
+            <option>Sprzatanie</option>
+            <option>Prace ogrodowe</option>
+            <option>Przeprowadzki</option>
+            <option>Opieka nad zwierzetami</option>
+            <option>Inna usluga</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="description">Opis zlecenia</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="5"
+            minlength="100"
+            placeholder="Np. Potrzebuje naprawy pralki. Pralka nie odprowadza wody."
+            required
+          ></textarea>
+          <p class="field-help">Minimum 100 znakow. Opisz problem, miejsce wykonania uslugi, wazne szczegoly i oczekiwany termin. Nie wpisuj danych wrazliwych.</p>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="location">Lokalizacja</label>
+            <input
+              id="location"
+              name="location"
+              type="text"
+              placeholder="Np. Warszawa, Mokotow"
+              required
+            >
+          </div>
+
+          <div class="form-field">
+            <label for="budget">Budzet (opcjonalnie)</label>
+            <input
+              id="budget"
+              name="budget"
+              type="text"
+              inputmode="numeric"
+              placeholder="Np. 300 PLN"
+            >
+          </div>
+        </div>
+
+        <button class="button button-primary" type="submit">
+          Dodaj zlecenie
+        </button>
+        <p id="form-message" class="message" role="status" aria-live="polite"></p>
+      </form>
     </section>
   </main>
 
