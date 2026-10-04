@@ -292,3 +292,56 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+.status-section {
+  border-top: 1px solid var(--border);
+  padding: 56px 0 72px;
+}
+
+.status-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  margin-top: 28px;
+  max-width: 760px;
+  padding: 24px;
+}
+
+.status-card h3 {
+  color: var(--navy);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.status-card h3:not(:first-child) {
+  margin-top: 28px;
+}
+
+.status-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.status-list li {
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 0 10px 30px;
+  position: relative;
+}
+
+.status-list li::before {
+  color: #198754;
+  content: "OK";
+  font-size: 0.75rem;
+  font-weight: 800;
+  left: 0;
+  position: absolute;
+  top: 13px;
+}
+
+.next-step {
+  color: var(--muted);
+  margin-bottom: 0;
+}
