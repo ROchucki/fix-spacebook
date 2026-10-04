@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fix&Spacebook - platforma lokalnych uslug w Polsce.">
+  <title>Fix&Spacebook | Lokalne uslugi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#start" aria-label="Fix and Spacebook - strona glowna">
+      Fix<span>&amp;</span>Spacebook
+    </a>
+    <a class="topbar-link" href="#uslugi">Kategorie</a>
+  </header>
+
+  <main id="start">
+    <section class="hero">
+      <p class="eyebrow">Lokalne uslugi w jednym miejscu</p>
+      <h1>Znajdz pomoc lub zaoferuj swoje uslugi.</h1>
+      <p class="lead">
+        Fix&amp;Spacebook laczy osoby, ktore potrzebuja pomocy,
+        z lokalnymi wykonawcami i firmami.
+      </p>
+
+      <div class="actions" aria-label="Wybierz dalszy krok">
+        <button class="button button-primary" type="button" data-action="client">
+          Szukam pomocy
+        </button>
+        <button class="button button-secondary" type="button" data-action="provider">
+          Chce oferowac uslugi
+        </button>
+      </div>
+
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="uslugi" class="services" aria-labelledby="services-title">
+      <div class="section-heading">
+        <p class="eyebrow">Pierwsze kategorie</p>
+        <h2 id="services-title">Jakiej pomocy szukasz?</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>Naprawy</h3>
+          <p>Samochody, rowery, AGD i RTV.</p>
+        </article>
+        <article class="service-card">
+          <h3>Dom i ogrod</h3>
+          <p>Sprzatanie, drobne prace i pomoc w ogrodzie.</p>
+        </article>
+        <article class="service-card">
+          <h3>Przeprowadzki</h3>
+          <p>Transport, noszenie i organizacja przeprowadzki.</p>
+        </article>
+        <article class="service-card">
+          <h3>Opieka</h3>
+          <p>Pomoc przy zwierzetach i codziennych sprawach.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Fix&amp;Spacebook - projekt MVP lokalnych uslug.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
