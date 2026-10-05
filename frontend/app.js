@@ -144,6 +144,14 @@ if (providerForm) {
     }
 
     const providerName = providerForm.elements.providerName.value;
+    const providerPreview = document.querySelector("#provider-preview");
+
+    if (providerPreview) {
+      providerPreview.hidden = false;
+      providerPreview.innerHTML =
+        `<h3>Podglad testowej oferty</h3>` +
+        `<p>Wykonawca: ${providerName}</p>`;
+    }
 
     providerFormMessage.textContent =
       `Dziekujemy. Testowa oferta wykonawcy "${providerName}" zostala przygotowana. ` +
