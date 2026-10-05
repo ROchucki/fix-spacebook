@@ -1,21 +1,17 @@
 const message = document.querySelector("#message");
 const buttons = document.querySelectorAll("[data-action]");
 
-const messages = {
-  client: "Przejdz do formularza ponizej i opisz swoje zlecenie.",
-  provider: "Wersja MVP: profil wykonawcy powstanie w kolejnym kroku."
-};
-
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    message.textContent = messages[button.dataset.action];
-  });
-});
-
 const requestForm = document.querySelector("#request-form");
 const formMessage = document.querySelector("#form-message");
 const categorySelect = document.querySelector("#category");
 const description = document.querySelector("#description");
+
+const providerButton = document.querySelector('[data-action="provider"]');
+const providerSection = document.querySelector("#oferta-wykonawcy");
+const providerForm = document.querySelector("#provider-form");
+const providerFormMessage = document.querySelector("#provider-form-message");
+const providerCategorySelect = document.querySelector("#provider-category");
+const providerDescription = document.querySelector("#provider-description");
 
 const descriptionPlaceholders = {
   "Naprawy samochodow":
@@ -38,6 +34,28 @@ const descriptionPlaceholders = {
 
 const defaultDescriptionPlaceholder =
   "Np. Opisz problem, miejsce wykonania uslugi i oczekiwany termin.";
+const providerDescriptionPlaceholders = {
+  "Naprawy samochodow":
+    "Np. Oferuje diagnostyke, naprawy silnika, hamulcow i zawieszenia.",
+  "Naprawy rowerow":
+    "Np. Oferuje regulacje przerzutek, hamulcow i podstawowe naprawy rowerow.",
+  "Naprawy AGD i RTV":
+    "Np. Oferuje diagnoze i naprawy pralek, lodowek oraz drobnego AGD.",
+  Sprzatanie:
+    "Np. Oferuje sprzatanie mieszkan po remoncie, generalne porzadki i regularne sprzatanie.",
+  "Prace ogrodowe":
+    "Np. Oferuje koszenie trawy, pielegnacje ogrodu i przycinanie zywoplotow.",
+  Przeprowadzki:
+    "Np. Oferuje transport mebli, noszenie rzeczy i pomoc przy przeprowadzkach.",
+  "Opieka nad zwierzetami":
+    "Np. Oferuje spacery z psami, opieke podczas wyjazdow i karmienie zwierzat.",
+  "Inna usluga":
+    "Np. Opisz konkretnie, jakie uslugi oferujesz i dla kogo."
+};
+
+const defaultProviderDescriptionPlaceholder =
+  "Np. Opisz zakres uslug, doswiadczenie i obszar dzialania.";
+
 
 function updateDescriptionPlaceholder() {
   if (!categorySelect || !description) {
@@ -52,6 +70,31 @@ function updateDescriptionPlaceholder() {
 if (categorySelect && description) {
   updateDescriptionPlaceholder();
   categorySelect.addEventListener("change", updateDescriptionPlaceholder);
+}
+
+function updateProviderDescriptionPlaceholder() {
+  if (!providerCategorySelect || !providerDescription) {
+    return;
+  }
+
+  providerDescription.placeholder =
+    providerDescriptionPlaceholders[providerCategorySelect.value] ||
+    defaultProviderDescriptionPlaceholder;
+}
+
+if (providerCategorySelect && providerDescription) {
+  updateProviderDescriptionPlaceholder();
+  providerCategorySelect.addEventListener(
+    "change",
+    updateProviderDescriptionPlaceholder
+  );
+}
+
+if (providerButton && providerSection) {
+  providerButton.addEventListener("click", () => {
+    providerSection.hidden = false;
+    providerSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 }
 
 if (requestForm) {
@@ -70,6 +113,25 @@ if (requestForm) {
       "W MVP dane nie sa jeszcze zapisywane.";
 
     requestForm.reset();
-    description.placeholder = defaultDescriptionPlaceholder;
+    updateDescriptionPlaceholder();
+  });
+}
+
+if (providerForm) {
+  providerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!providerForm.checkValidity()) {
+      providerForm.reportValidity();
+      return;
+    }
+
+    const providerName = providerForm.elements.providerName.value;
+
+    providerFormMessage.textContent =
+      `Dziekujemy. Testowa oferta wykonawcy "${providerName}" zostala przygotowana. ` +
+      "W MVP dane nie sa jeszcze zapisywane.";
+
+    providerForm.reset();
   });
 }

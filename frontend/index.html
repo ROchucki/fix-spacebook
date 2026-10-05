@@ -36,6 +36,89 @@
       <p id="message" class="message" role="status" aria-live="polite"></p>
     </section>
 
+    <section id="oferta-wykonawcy" class="request-section" aria-labelledby="provider-title" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">Dla wykonawcy uslug</p>
+        <h2 id="provider-title">Dodaj oferte uslug</h2>
+        <p class="lead">
+          Opisz, jakie uslugi oferujesz. W MVP oferta nie jest jeszcze zapisywana.
+        </p>
+      </div>
+
+      <form id="provider-form" class="request-form">
+        <div class="form-field">
+          <label for="provider-name">Nazwa wykonawcy lub firmy</label>
+          <input
+            id="provider-name"
+            name="providerName"
+            type="text"
+            autocomplete="organization"
+            placeholder="Np. Serwis Rowerowy Zielona 12"
+            required
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="provider-category">Kategoria uslugi</label>
+          <select id="provider-category" name="providerCategory" required>
+            <option value="">Wybierz kategorie</option>
+            <option>Naprawy samochodow</option>
+            <option>Naprawy rowerow</option>
+            <option>Naprawy AGD i RTV</option>
+            <option>Sprzatanie</option>
+            <option>Prace ogrodowe</option>
+            <option>Przeprowadzki</option>
+            <option>Opieka nad zwierzetami</option>
+            <option>Inna usluga</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="provider-location">Lokalizacja</label>
+            <input
+              id="provider-location"
+              name="providerLocation"
+              type="text"
+              placeholder="Np. Warszawa, Mokotow"
+              required
+            >
+          </div>
+
+          <div class="form-field">
+            <label for="provider-area">Obszar dojazdu</label>
+            <input
+              id="provider-area"
+              name="providerArea"
+              type="text"
+              placeholder="Np. Warszawa i okolice"
+            >
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="provider-description">Opis oferty i doswiadczenia</label>
+          <textarea
+            id="provider-description"
+            name="providerDescription"
+            rows="5"
+            minlength="20"
+            placeholder="Np. Od 5 lat serwisuje rowery. Oferuje regulacje hamulcow, przerzutek i podstawowe naprawy."
+            required
+          ></textarea>
+          <p class="field-help">
+            Minimum 20 znakow. Opisz zakres uslug, doswiadczenie i najwazniejsze informacje.
+            Nie wpisuj danych wrazliwych.
+          </p>
+        </div>
+
+        <button class="button button-primary" type="submit">
+          Dodaj oferte
+        </button>
+        <p id="provider-form-message" class="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
     <section id="uslugi" class="services" aria-labelledby="services-title">
       <div class="section-heading">
         <p class="eyebrow">Pierwsze kategorie</p>
