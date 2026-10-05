@@ -10,6 +10,7 @@ const providerButton = document.querySelector('[data-action="provider"]');
 const providerSection = document.querySelector("#oferta-wykonawcy");
 const providerForm = document.querySelector("#provider-form");
 const providerFormMessage = document.querySelector("#provider-form-message");
+const closeProviderFormButton = document.querySelector("#close-provider-form");
 const providerCategorySelect = document.querySelector("#provider-category");
 const providerDescription = document.querySelector("#provider-description");
 
@@ -94,6 +95,22 @@ if (providerButton && providerSection) {
   providerButton.addEventListener("click", () => {
     providerSection.hidden = false;
     providerSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
+if (closeProviderFormButton && providerSection) {
+  closeProviderFormButton.addEventListener("click", () => {
+    if (providerForm) {
+      providerForm.reset();
+    }
+
+    if (providerFormMessage) {
+      providerFormMessage.textContent = "";
+    }
+
+    updateProviderDescriptionPlaceholder();
+    providerSection.hidden = true;
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
 

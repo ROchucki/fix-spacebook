@@ -86,13 +86,16 @@
           </div>
 
           <div class="form-field">
-            <label for="provider-area">Obszar dojazdu</label>
-            <input
-              id="provider-area"
-              name="providerArea"
-              type="text"
-              placeholder="Np. Warszawa i okolice"
-            >
+            <label for="provider-area">Promien dojazdu</label>
+            <select id="provider-area" name="providerArea" required>
+              <option value="">Wybierz promien</option>
+              <option value="0">Tylko w miescie</option>
+              <option value="10">Do 10 km</option>
+              <option value="25">Do 25 km</option>
+              <option value="50">Do 50 km</option>
+              <option value="100">Do 100 km</option>
+              <option value="indywidualnie">Ustale indywidualnie</option>
+            </select>
           </div>
         </div>
 
@@ -112,9 +115,18 @@
           </p>
         </div>
 
-        <button class="button button-primary" type="submit">
-          Dodaj oferte
-        </button>
+        <div class="form-actions">
+          <button class="button button-primary" type="submit">
+            Dodaj oferte
+          </button>
+          <button
+            id="close-provider-form"
+            class="button button-secondary"
+            type="button"
+          >
+            Zamknij formularz
+          </button>
+        </div>
         <p id="provider-form-message" class="message" role="status" aria-live="polite"></p>
       </form>
     </section>
