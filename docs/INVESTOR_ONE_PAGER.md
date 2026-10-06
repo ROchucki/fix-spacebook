@@ -1,4 +1,4 @@
-# Fix&Spacebook — opis dla inwestora
+ r# Fix&Spacebook — opis dla inwestora
 
 Wersja: 0.1
 Data: 2026-10-06
@@ -17,8 +17,20 @@ odpowiedniej oferty.
 
 ## Rozwiązanie
 
-Fix&Spacebook to projekt platformy usług lokalnych w Polsce,
+Fix&Spacebook to projekt platformy usług lokalnych
+o docelowym zasięgu obejmującym Polskę, Europę i świat,
 łączącej klientów z osobami i firmami wykonującymi usługi.
+
+Plan zakłada etapowy rozwój:
+Polska → kolejne rynki europejskie → rynki światowe.
+
+Platforma ma być dostępna na kolejnych rynkach,
+natomiast usługi pozostają lokalne, zgodnie
+z obszarem działania wykonawcy.
+
+Zasięg międzynarodowy jest celem rozwoju,
+a nie obecną funkcją demo. Kraje i terminy wdrożeń
+pozostają do ustalenia.
 
 Klient opisuje potrzebę, wybiera kategorię i lokalizację.
 Wykonawca przedstawia ofertę, zakres usług i obszar dojazdu.
