@@ -102,6 +102,7 @@ if (closeProviderFormButton && providerSection) {
   closeProviderFormButton.addEventListener("click", () => {
     if (providerForm) {
       providerForm.reset();
+    updateProviderDescriptionPlaceholder();
     }
 
     if (providerFormMessage) {
@@ -148,9 +149,7 @@ if (providerForm) {
 
     if (providerPreview) {
       providerPreview.hidden = false;
-      providerPreview.innerHTML =
-        `<h3>Podglad testowej oferty</h3>` +
-        `<p>Wykonawca: ${providerName}</p>`;
+      providerPreview.textContent = `Wykonawca: ${providerName}`;
     }
 
     providerFormMessage.textContent =
@@ -158,5 +157,6 @@ if (providerForm) {
       "W MVP dane nie sa jeszcze zapisywane.";
 
     providerForm.reset();
+    updateProviderDescriptionPlaceholder();
   });
 }
