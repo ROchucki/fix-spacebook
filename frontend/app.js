@@ -144,13 +144,31 @@ if (providerForm) {
     }
 
     const providerName = providerForm.elements.providerName.value;
-    const providerPreview = document.querySelector("#provider-preview");
+    const preview = document.querySelector("#provider-preview");
+    const f = providerForm.elements;
 
-    if (providerPreview) {
-      providerPreview.hidden = false;
-      providerPreview.innerHTML =
-        `<h3>Podglad testowej oferty</h3>` +
-        `<p>Wykonawca: ${providerName}</p>`;
+    if (preview) {
+      preview.replaceChildren();
+      const title = document.createElement("h3");
+      title.textContent = "Podgląd testowej oferty";
+      preview.append(title);
+
+      const fields = [
+        ["Wykonawca", providerName],
+        ["Kategoria", f.providerCategory.value],
+        ["Lokalizacja", f.providerLocation.value],
+        ["Dojazd", f.providerArea.selectedOptions[0].textContent],
+        ["Opis", f.providerDescription.value]
+      ];
+
+      fields.forEach(([label, value]) => {
+        const row = document.createElement("p");
+        row.textContent = label + ": " + value;
+        row.style.whiteSpace = "pre-wrap";
+        row.style.overflowWrap = "anywhere";
+        preview.append(row);
+      });
+      preview.hidden = false;
     }
 
     providerFormMessage.textContent =
@@ -158,5 +176,95 @@ if (providerForm) {
       "W MVP dane nie sa jeszcze zapisywane.";
 
     providerForm.reset();
+  });
+}
+
+// Wyszukiwanie kategorii
+const searchForm = document.querySelector("#service-search-form");
+const searchInput = document.querySelector("#service-search");
+const searchClear = document.querySelector("#clear-service-search");
+const searchSection = document.querySelector("#uslugi");
+const searchCards = [...document.querySelectorAll("#uslugi .service-card")];
+
+if (searchForm && searchInput && searchClear && searchSection) {
+  const status = document.createElement("p");
+  status.className = "message";
+  status.setAttribute("role", "status");
+  searchSection.append(status);
+
+  const normalize = text => text.toLowerCase()
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/ł/g, "l").trim();
+
+  function filterCategories() {
+    const query = normalize(searchInput.value);
+    const words = query.split(/s+/).filter(Boolean);
+    let count = 0;
+
+    searchCards.forEach(card => {
+      const text = normalize(card.textContent);
+      card.hidden = !words.every(word => text.includes(word));
+      if (!card.hidden) count++;
+    });
+
+    searchClear.hidden = searchInput.value.length === 0;
+    status.textContent = !query ? "" : count
+      ? `Pasujące kategorie: ${count}.`
+      : "Brak pasujących kategorii.";
+  }
+
+  searchInput.addEventListener("input", filterCategories);
+  searchClear.addEventListener("click", () => {
+    searchInput.value = "";
+    filterCategories();
+    searchInput.focus();
+  });
+
+  searchForm.addEventListener("submit", event => {
+    event.preventDefault();
+    filterCategories();
+    searchInput.blur();
+    searchSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  filterCategories();
+}
+
+// Rozwijane kategorie i wybór usługi
+const categoryPanels = document.querySelectorAll(".service-details");
+
+categoryPanels.forEach(panel => {
+  panel.addEventListener("toggle", () => {
+    if (!panel.open) return;
+    categoryPanels.forEach(other => {
+      if (other !== panel && other.open) other.open = false;
+    });
+  });
+});
+
+const chosenServiceNote = document.createElement("p");
+chosenServiceNote.className = "field-help";
+chosenServiceNote.setAttribute("role", "status");
+if (categorySelect) categorySelect.after(chosenServiceNote);
+
+document.querySelectorAll(".service-option").forEach(link => {
+  link.addEventListener("click", () => {
+    if (!categorySelect) return;
+    categorySelect.value = link.dataset.serviceCategory;
+    categorySelect.dispatchEvent(new Event("change"));
+    chosenServiceNote.textContent =
+      "Wybrana usługa: " + link.dataset.serviceName;
+  });
+});
+
+if (categorySelect) {
+  categorySelect.addEventListener("change", () => {
+    chosenServiceNote.textContent = "";
+  });
+}
+
+if (requestForm) {
+  requestForm.addEventListener("reset", () => {
+    chosenServiceNote.textContent = "";
   });
 }
