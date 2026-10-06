@@ -1,67 +1,131 @@
-# Wizja projektu — Fix Spacebook
+# Wizja projektu — Fix&Spacebook
 
 ## 1. Cel projektu
 
-Fix Spacebook to prywatna, uporządkowana przestrzeń robocza do rozwijania projektów, notatek, planów i materiałów z pomocą AI.
+Fix&Spacebook to projekt platformy usług lokalnych
+o docelowym zasięgu globalnym.
 
-Projekt ma pomagać w codziennej pracy nad:
-- programowaniem i GitHubem,
-- nauką AI, LLM i automatyzacji,
-- cyberbezpieczeństwem i OSINT,
-- organizacją wiedzy, zadań i dokumentacji,
-- planowaniem własnych projektów oraz rozwiązań biznesowych.
+Ma łączyć osoby szukające pomocy z osobami i firmami
+wykonującymi konkretne, legalne usługi — w Polsce,
+pozostałych krajach Europy i na świecie.
 
-## 2. Główne założenia
+Klient opisuje potrzebę i lokalizację.
+Wykonawca przedstawia zakres usług oraz obszar działania.
 
-- Prywatność danych jest priorytetem.
-- Projekt ma być prosty w użyciu na telefonie z Androidem.
-- Dokumentacja i wiedza mają być przechowywane w formacie Markdown.
-- GitHub służy jako historia zmian, kopia zapasowa i miejsce rozwoju projektu.
-- AI ma wspierać użytkownika w planowaniu, analizie, tworzeniu kodu i porządkowaniu wiedzy.
-- Rozwiązania powinny być możliwie tanie, praktyczne i łatwe do utrzymania.
+## 2. Zasięg i kierunek rozwoju
+
+Plan zakłada etapowy rozwój:
+Polska → kolejne rynki europejskie → rynki światowe.
+
+Globalny zasięg oznacza dostępność platformy na kolejnych
+rynkach. Poszczególne usługi pozostają lokalne,
+zgodnie z obszarem działania wykonawcy.
+
+Zasięg międzynarodowy jest celem rozwoju,
+a nie obecną funkcją demo.
+
+Terminy, kraje wdrożeń i obszar pierwszego pilotażu
+pozostają do ustalenia.
 
 ## 3. Dla kogo
 
-Projekt jest tworzony przede wszystkim dla jednej osoby pracującej samodzielnie na Androidzie i w Termuxie.
+- Klienci szukający lokalnej pomocy.
+- Osoby oferujące usługi.
+- Lokalne firmy usługowe.
 
-Docelowo może być rozwijany jako osobista baza wiedzy oraz zestaw narzędzi do prowadzenia projektów technicznych.
+## 4. Początkowe kategorie
 
-## 4. Zakres pierwszej wersji
+- Naprawy samochodów.
+- Naprawy rowerów.
+- Naprawy AGD i RTV.
+- Sprzątanie.
+- Prace ogrodowe.
+- Przeprowadzki.
+- Opieka nad zwierzętami.
 
-Pierwsza wersja skupia się na uporządkowanym repozytorium GitHub:
+Frontend zawiera również opcję „Inna usługa”.
+Kategorie priorytetowe dla pilotażu oraz zakres
+dopuszczonych ogłoszeń pozostają do ustalenia.
 
-- dokumenty Markdown w katalogu `docs/`,
-- jasna mapa plików i struktury projektu,
-- lista zadań oraz priorytetów,
-- opisy sposobu pracy z AI,
-- historia zmian prowadzona przez Git.
+## 5. Główne założenia
 
-## 5. Kierunek rozwoju
+- Prosty proces opisania potrzeby lub oferty.
+- Wygodna obsługa z telefonu.
+- Kategorie i lokalizacja pomagające znaleźć usługę.
+- Jasne rozróżnienie demo od działającego produktu.
+- Ochrona danych i możliwość zgłaszania naruszeń.
+- Rozwój małymi krokami, po testach z użytkownikami.
 
-W kolejnych etapach projekt może zawierać:
+Weryfikacja wykonawców nie jest obecnie potwierdzoną
+funkcją. Jej zakres i procedury wymagają decyzji.
 
-- prostą aplikację webową lub PWA,
-- wyszukiwanie notatek i dokumentów,
-- lokalne lub zewnętrzne modele AI,
-- automatyzacje w Pythonie,
-- integracje z GitHubem, notatkami i kalendarzem,
-- moduły do analizy informacji, OSINT i cyberbezpieczeństwa,
-- szablony projektów, promptów i procedur pracy.
+## 6. Obecny stan
 
-## 6. Zasady pracy
+Istnieje demonstracyjny frontend w HTML, CSS i JavaScript.
 
-1. Każda ważna decyzja ma krótki opis w Markdown.
-2. Zmiany wykonujemy małymi krokami.
-3. Po każdym zakończonym etapie sprawdzamy `git status`.
-4. Gotowe zmiany zapisujemy przez commit i wysyłamy przez `git push`.
-5. Nie zapisujemy haseł, tokenów API ani prywatnych danych w repozytorium.
-6. Najpierw tworzymy prostą, działającą wersję, a dopiero potem rozbudowujemy funkcje.
+Kod obejmuje:
+- Stronę startową oraz kategorie.
+- Formularz zlecenia klienta.
+- Formularz oferty wykonawcy.
+- Lokalizację i wybór promienia dojazdu wykonawcy.
+- Walidację opisu: minimum 20 znaków.
+- Podpowiedzi opisu zależne od kategorii.
+- Otwieranie i zamykanie formularza wykonawcy.
+- Testowy podgląd nazwy wykonawcy.
 
-## 7. Miara sukcesu
+Dane formularzy nie są zapisywane ani wysyłane na serwer.
+Demo nie realizuje jeszcze rzeczywistej obsługi zleceń
+ani łączenia klientów z wykonawcami.
 
-Projekt będzie spełniał swoją rolę, jeżeli pozwoli szybko:
-- odnaleźć potrzebną notatkę lub decyzję,
-- wrócić do przerwanej pracy po kilku dniach,
-- prowadzić projekt z telefonu,
-- bezpiecznie przechowywać historię zmian,
-- korzystać z AI w uporządkowany i świadomy sposób.
+## 7. Kierunek funkcjonalnego MVP
+
+Planowany proces:
+dodanie zlecenia → przeglądanie przez wykonawców →
+odpowiedź → kontakt między stronami.
+
+Planowany zakres:
+- Backend i baza danych.
+- Konta oraz profile klientów i wykonawców.
+- Zapisywanie zleceń i ofert.
+- Przeglądanie według kategorii i lokalizacji.
+- Odpowiedzi na zlecenia.
+- Zgłaszanie naruszeń i podstawowa moderacja.
+
+Szczegółowy zakres, harmonogram i koszt wymagają ustalenia.
+Płatności i zaawansowane dopasowanie nie należą
+do proponowanego początkowego zakresu.
+
+Obsługa kolejnych krajów i języków pozostaje
+kierunkiem dalszego rozwoju.
+
+## 8. Walidacja i miary sukcesu
+
+Najpierw należy sprawdzić potrzeby klientów
+i wykonawców oraz przetestować zrozumiałość demo.
+
+W pilotażu planujemy mierzyć:
+- Liczbę opublikowanych zleceń.
+- Odsetek zleceń z odpowiedzią.
+- Czas do pierwszej odpowiedzi.
+- Kontakty prowadzące do wykonania usługi.
+- Powroty klientów i wykonawców.
+
+Cele liczbowe i sposób pomiaru pozostają do ustalenia.
+Popyt oraz model przychodów nie są jeszcze zweryfikowane.
+
+## 9. Organizacja projektu
+
+Główne repozytorium:
+ROchucki/fix-spacebook
+
+Repozytorium demonstracyjnego frontendu:
+ROchucki/fix-spacebook-frontend-demo
+
+Dokumenty odniesienia:
+- docs/PROJECT_CONTEXT.md — punkt kontrolny projektu.
+- docs/INVESTOR_ONE_PAGER.md — opis dla inwestora.
+
+Android i Termux są środowiskiem pracy autora,
+a nie główną funkcją produktu.
+
+Nie zapisujemy haseł, tokenów ani kluczy API w repozytorium.
