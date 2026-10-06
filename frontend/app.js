@@ -102,6 +102,7 @@ if (closeProviderFormButton && providerSection) {
   closeProviderFormButton.addEventListener("click", () => {
     if (providerForm) {
       providerForm.reset();
+    updateProviderDescriptionPlaceholder();
     }
 
     if (providerFormMessage) {
@@ -176,6 +177,7 @@ if (providerForm) {
       "W MVP dane nie sa jeszcze zapisywane.";
 
     providerForm.reset();
+    updateProviderDescriptionPlaceholder();
   });
 }
 
