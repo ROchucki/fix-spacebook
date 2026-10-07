@@ -1,5 +1,8 @@
 # Zakres pierwszej wersji — Fix Spacebook
 
+> Aktualizacja 2026-10-07: ten dokument opisuje etap przygotowania repozytorium i dokumentacji. Istnieje już demonstracyjny frontend. Aktualny zakres funkcjonalnego MVP określa docs/14-ZAKRES_MVP_I_DOSTEP.md, a listę zadań docs/03-LISTA_ZADAN_I_PRIORYTETY.md. Poniższe ograniczenia dotyczą wyłącznie etapu przygotowawczego.
+
+
 ## 1. Cel pierwszej wersji
 
 Pierwsza wersja Fix Spacebook ma stworzyć prostą, prywatną i uporządkowaną bazę projektu w repozytorium GitHub.
