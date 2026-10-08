@@ -127,7 +127,7 @@ if (requestForm) {
     const category = requestForm.elements.category.value;
 
     formMessage.textContent =
-      `Dziekujemy. Testowe zlecenie w kategorii "${category}" zostalo przygotowane. ` +
+      `Dziękujemy. Testowe zlecenie w kategorii "${category}" zostało przygotowane. ` +
       "W MVP dane nie sa jeszcze zapisywane.";
 
     requestForm.reset();
@@ -173,7 +173,7 @@ if (providerForm) {
     }
 
     providerFormMessage.textContent =
-      `Dziekujemy. Testowa oferta wykonawcy "${providerName}" zostala przygotowana. ` +
+      `Dziękujemy. Testowa oferta wykonawcy "${providerName}" zostala przygotowana. ` +
       "W MVP dane nie sa jeszcze zapisywane.";
 
     providerForm.reset();
