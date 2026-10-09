@@ -508,3 +508,142 @@ h1 {
   text-decoration: none;
   white-space: nowrap;
 }
+
+#konto .account-card-heading{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px}#konto .account-card-heading h3{margin:0}#konto .account-brand{margin-left:auto;font-size:clamp(18px,5vw,26px);font-weight:800;color:#426b7a;letter-spacing:-.5px}
+
+#konto .account-help{margin-left:auto;max-width:100%;font-size:13px;color:#175f7b}#konto .account-help summary{cursor:pointer;font-weight:600;text-align:right}#konto .account-help p{max-width:260px;line-height:1.5}#konto .account-help a{color:#175f7b;text-decoration:underline}#konto .form-field .field-help{margin:6px 0 0;font-size:12px;line-height:1.45;color:#52616b}
+
+/* Logo w tle nagłówków konta */
+#konto .account-card-heading {
+  position: relative;
+  isolation: isolate;
+  min-height: 64px;
+}
+#konto .account-card-heading::before {
+  content: "Fix&Spacebook";
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #426b7a;
+  opacity: .13;
+  font-size: clamp(18px, 4.8vw, 28px);
+  font-weight: 800;
+  letter-spacing: -.8px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: -1;
+}
+#konto .account-help {
+  flex: 0 1 48%;
+  min-width: 0;
+}
+#konto .account-help summary {
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+#konto .account-card-heading::before { content: none; }
+#konto .account-card-heading > .account-logo-color {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(36px, 9.6vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.6px;
+  color: rgba(66, 107, 122, .3);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+#konto .account-logo-color > span { color: #f4c400; }
+#konto .account-card-heading > h3,
+#konto .account-card-heading > .account-help {
+  position: relative;
+  z-index: 1;
+}
+
+#konto .account-help summary {
+  color: #f4c400;
+}
+
+#konto .account-card-heading {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+#konto .account-card-heading > .account-help {
+  flex: none;
+  width: 100%;
+  margin-left: 0;
+}
+#konto .account-help summary {
+  color: #f4c400;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+body { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+#bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #fff;
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 16px rgba(18,38,63,.1);
+  padding: 8px 4px calc(8px + env(safe-area-inset-bottom));
+}
+#bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  color: var(--blue-dark);
+  text-decoration: none;
+  font-size: 22px;
+}
+#bottom-nav span { font-size: 12px; font-weight: 800; }
+#bottom-nav a:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: -2px;
+}
+
+/* FAQ — niebieskie wybory */
+#pomoc details {
+  margin: 10px 0;
+  border: 1px solid #c7dcf5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#pomoc details > summary {
+  padding: 14px;
+  color: #1565c0;
+  background: #f0f6ff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#pomoc details > summary:hover,
+#pomoc details[open] > summary {
+  color: #0d47a1;
+  background: #dbeafe;
+}
+
+#pomoc details > summary:focus-visible {
+  outline: 2px solid #1565c0;
+  outline-offset: -3px;
+}
+
+#pomoc details > p {
+  padding: 0 14px;
+  margin: 14px 0;
+}

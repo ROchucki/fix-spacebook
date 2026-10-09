@@ -41,6 +41,7 @@
     </form>
 
     <a class="topbar-link" href="#uslugi">Kategorie</a>
+<a class="topbar-link" href="#konto">Konto</a>
   </header>
 
   <main id="start">
@@ -235,7 +236,81 @@
       </form>
     </section>
 
-    <section class="status-section" aria-labelledby="status-title">
+    
+<section id="konto" class="request-section" aria-labelledby="account-title">
+  <div class="section-heading">
+    <p class="eyebrow">Twoje konto</p>
+    <h2 id="account-title">Logowanie i rejestracja</h2>
+  </div>
+  <p id="auth-status" class="message" role="status" aria-live="polite">
+    Obsługa kont oczekuje na podłączenie.
+  </p>
+  <div id="auth-forms">
+    <form id="login-form" class="request-form">
+<div class="account-card-heading"><span class="account-logo-color" aria-hidden="true">Fix<span>&amp;</span>Spacebook</span>
+<h3>Zaloguj się</h3>
+<details class="account-help">
+<summary>Pomoc w logowaniu<br>pytania i odpowiedzi</summary>
+<p>Co wpisać?<br>Podaj e-mail i hasło swojego konta.</p>
+<p>Konto wymaga potwierdzenia?<br>Sprawdź pocztę.</p>
+</details></div>
+<div class="form-field">
+        <label for="login-email">Adres e-mail</label>
+        <input id="login-email" name="email" type="email"
+               autocomplete="username" required>
+<p class="field-help">Podaj adres e-mail swojego konta.</p>
+      </div>
+      <div class="form-field">
+        <label for="login-password">Hasło</label>
+        <input id="login-password" name="password" type="password"
+               autocomplete="current-password" required>
+      </div>
+      <button class="button button-primary" type="submit" disabled>
+        Zaloguj się
+      </button>
+    </form>
+    <form id="register-form" class="request-form">
+<div class="account-card-heading"><span class="account-logo-color" aria-hidden="true">Fix<span>&amp;</span>Spacebook</span>
+<h3>Załóż konto</h3>
+<details class="account-help">
+<summary>Pomoc w założeniu konta<br>pytania i odpowiedzi</summary>
+<p>Co wpisać?<br>Podaj e-mail i hasło minimum 8 znaków. Powtórz hasło.</p>
+<p>Konto wymaga potwierdzenia?<br>Sprawdź pocztę.</p>
+</details></div>
+<div class="form-field">
+        <label for="register-email">Adres e-mail</label>
+        <input id="register-email" name="email" type="email"
+               autocomplete="username" required>
+<p class="field-help">Podaj adres e-mail swojego konta.</p>
+      </div>
+      <div class="form-field">
+        <label for="register-password">Hasło</label>
+        <input id="register-password" name="password" type="password"
+               minlength="8" autocomplete="new-password" required>
+        <p class="field-help">Utwórz hasło do swojego konta. Minimum 8 znaków.</p>
+      </div>
+      <div class="form-field">
+        <label for="register-password-confirm">Powtórz hasło</label>
+        <input id="register-password-confirm" name="passwordConfirm"
+               type="password" minlength="8"
+               autocomplete="new-password" required>
+<p class="field-help">Wpisz ponownie to samo hasło.</p>
+      </div>
+      <p class="field-help">
+        Po rejestracji sprawdź pocztę i potwierdź adres e-mail.
+      </p>
+      <button class="button button-primary" type="submit" disabled>
+        Załóż konto
+      </button>
+    </form>
+  </div>
+  <button id="logout-button" class="button button-secondary"
+          type="button" hidden disabled>
+    Wyloguj się
+  </button>
+</section>
+
+<section class="status-section" aria-labelledby="status-title">
       <div class="section-heading">
         <p class="eyebrow">Stan projektu</p>
         <h2 id="status-title">Status MVP</h2>
@@ -258,12 +333,51 @@
         </p>
       </div>
     </section>
-  </main>
+  
+<section id="pomoc" class="request-section">
+  <h2>Pomoc</h2>
+  <p><a href="#login-form">Pomoc w logowaniu</a></p>
+  <p><a href="#register-form">Pomoc w założeniu konta</a></p>
+  <h3>Najczęstsze pytania</h3>
+
+  <details>
+    <summary>Jak założyć konto?</summary>
+    <p>Przejdź do <a href="#register-form">formularza rejestracji</a>. Obsługa kont wymaga jeszcze sprawdzenia.</p>
+  </details>
+
+  <details>
+    <summary>Jak się zalogować?</summary>
+    <p>Przejdź do <a href="#login-form">formularza logowania</a>. Działanie logowania wymaga jeszcze sprawdzenia.</p>
+  </details>
+
+  <details>
+    <summary>Jak dodać zlecenie?</summary>
+    <p>Instrukcja zostanie uzupełniona po sprawdzeniu funkcji dodawania zleceń.</p>
+  </details>
+
+  <details>
+    <summary>Jak zaoferować usługę?</summary>
+    <p>Instrukcja zostanie uzupełniona po sprawdzeniu funkcji oferowania usług.</p>
+  </details>
+
+  <details>
+    <summary>Jakie informacje wpisać w ogłoszeniu?</summary>
+    <p>Opisz zakres pracy i oczekiwany termin. Nie podawaj haseł, numeru PESEL ani danych dokumentów.</p>
+  </details>
+</section>
+<nav id="bottom-nav" aria-label="Nawigacja dolna">
+  <a href="#start">🧭<span>Start</span></a>
+  <a href="#uslugi">🔎<span>Szukaj</span></a>
+  <a href="#pomoc">❔<span>Pomoc</span></a>
+  <a href="#konto">👤<span>Konto</span></a>
+</nav>
+</main>
 
   <footer class="footer">
     <p>Fix&amp;Spacebook - projekt MVP lokalnych uslug.</p>
   </footer>
 
   <script src="app.js"></script>
+  <script type="module" src="auth.js"></script>
 </body>
 </html>
