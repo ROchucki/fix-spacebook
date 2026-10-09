@@ -37,7 +37,9 @@ function sessionStatus() {
 function errorText(error) {
   const code = error && error.code;
   if (code === "invalid_credentials")
-    return "Nieprawidłowy e-mail lub hasło.";
+    return "Logowanie odrzucone. Kod: " + error.code
+      + "; status: " + error.status
+      + "; szczegóły: " + error.message;
   if (code === "email_not_confirmed")
     return "Najpierw potwierdź adres e-mail.";
   if (code === "weak_password")
@@ -151,4 +153,4 @@ async function init() {
   }
 }
 
-init();
+window.fixSupabaseReady = init().then(() => client);

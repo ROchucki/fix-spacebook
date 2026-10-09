@@ -116,22 +116,130 @@ if (closeProviderFormButton && providerSection) {
 }
 
 if (requestForm) {
-  requestForm.addEventListener("submit", (event) => {
+  let savingJob = false;
+
+  requestForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    if (!requestForm.checkValidity()) {
-      requestForm.reportValidity();
+    if (savingJob || !requestForm.reportValidity()) {
       return;
     }
 
-    const category = requestForm.elements.category.value;
+    const f = requestForm.elements;
 
-    formMessage.textContent =
-      `Dziękujemy. Testowe zlecenie w kategorii "${category}" zostało przygotowane. ` +
-      "W MVP dane nie sa jeszcze zapisywane.";
+    const category = f.category.value.trim();
+    const text = f.description.value.trim();
+    const location = f.location.value.trim();
 
-    requestForm.reset();
-    updateDescriptionPlaceholder();
+    const separator = location.indexOf(",");
+
+    const city = (
+      separator < 0
+        ? location
+        : location.slice(0, separator)
+    ).trim();
+
+    const district = separator < 0
+      ? null
+      : location.slice(separator + 1).trim() || null;
+
+    if (!category || text.length < 20 || !city) {
+      formMessage.textContent =
+        "Wybierz kategorię, wpisz opis minimum 20 znaków i miejscowość.";
+      return;
+    }
+
+    const amount = f.budget.value
+      .trim()
+      .replace(/\s*PLN$/i, "")
+      .trim();
+
+    let budget = null;
+
+    if (amount) {
+      if (!/^\d+(?:[.,]\d{1,2})?$/.test(amount)) {
+        formMessage.textContent =
+          "Wpisz jedną kwotę, np. 20, 50, 100 lub 20,50.";
+        f.budget.focus();
+        return;
+      }
+
+      budget = Number(amount.replace(",", "."));
+
+      if (!Number.isFinite(budget) || budget < 0) {
+        formMessage.textContent =
+          "Wpisz poprawną kwotę budżetu.";
+        return;
+      }
+    }
+
+    const submit =
+      requestForm.querySelector('[type="submit"]');
+
+    savingJob = true;
+
+    if (submit) {
+      submit.disabled = true;
+    }
+
+    formMessage.textContent = "Zapisywanie zlecenia...";
+
+    try {
+      const client = await window.fixSupabaseReady;
+
+      if (!client) {
+        formMessage.textContent =
+          "Supabase nie jest gotowy. Odśwież stronę i sprawdź połączenie.";
+        return;
+      }
+
+      const {
+        data: authData,
+        error: authError
+      } = await client.auth.getUser();
+
+      if (authError || !authData.user) {
+        formMessage.textContent =
+          "Zaloguj się w zakładce Konto przed dodaniem zlecenia.";
+        return;
+      }
+
+      const { data, error } = await client
+        .from("jobs")
+        .insert({
+          category,
+          description: text,
+          city,
+          district,
+          budget
+        })
+        .select("id")
+        .single();
+
+      if (error) {
+        formMessage.textContent =
+          "Zapis nie został potwierdzony. Kod błędu: " +
+          (error.code || "brak") +
+          ". Zachowano wpisane dane.";
+        return;
+      }
+
+      requestForm.reset();
+      updateDescriptionPlaceholder();
+
+      formMessage.textContent =
+        "Zlecenie zapisane w bazie. ID: " + data.id;
+    } catch (error) {
+      formMessage.textContent =
+        "Zapis nie został potwierdzony. Sprawdź połączenie. " +
+        "Zachowano wpisane dane; przed ponowieniem sprawdź bazę.";
+    } finally {
+      savingJob = false;
+
+      if (submit) {
+        submit.disabled = false;
+      }
+    }
   });
 }
 
