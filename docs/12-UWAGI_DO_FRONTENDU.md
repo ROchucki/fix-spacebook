@@ -1,9 +1,3 @@
-## Uwaga 1
-Obszar: [np. formularz klienta]
-Problem: [co jest nie tak]
-Oczekiwana zmiana: [co ma się dziać / jak ma wyglądać]
-Priorytet: P0 / P1 / P2
-Status: do zrobienia
 # Uwagi do frontendu MVP
 
 ## Uwaga 1 - minimalna dlugosc opisu
@@ -16,7 +10,7 @@ Oczekiwana zmiana: Zmienic minimalna dlugosc opisu z 100 na 20 znakow. Pozostawi
 
 Priorytet: P1
 
-Status: do zrobienia
+Status: wykonane — potwierdzone przez właściciela 2026-10-07.
 
 ## Uwaga 2 - podpowiedz zależna od kategorii
 
@@ -28,4 +22,4 @@ Oczekiwana zmiana: Po wyborze kategorii automatycznie zmieniac przyklad w polu o
 
 Priorytet: P1
 
-Status: do zrobienia
+Status: wykonane — potwierdzone przez właściciela 2026-10-07.

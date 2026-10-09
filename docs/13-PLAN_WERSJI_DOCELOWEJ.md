@@ -19,7 +19,8 @@ Ostatni potwierdzony commit demo: 2bd7b14.
 3. Konta użytkowników i kontrola uprawnień.
 4. Zapis zleceń i ofert wykonawców.
 5. Wyświetlanie danych oraz obsługa błędów.
-6. Testy bezpieczeństwa, kopie zapasowe i wdrożenie.
+6. Odpowiedzi na zlecenia, prywatne rozmowy oraz zgłoszenia naruszeń i moderacja.
+7. Testy bezpieczeństwa, kopie zapasowe i wdrożenie.
 
 ## Koszty
 
@@ -36,10 +37,23 @@ Do testów używamy danych fikcyjnych.
 
 ## Najbliższe zadanie
 
-Ustalić pola zleceń i ofert oraz zasady:
-- kto może publikować,
-- kto może przeglądać,
-- kto może edytować i usuwać,
-- które dane są publiczne, a które prywatne.
+Podstawowe pola i zasady dostępu zatwierdzono
+w docs/14-ZAKRES_MVP_I_DOSTEP.md dnia 2026-10-06.
 
-Technologia backendu i bazy nie została jeszcze wybrana.
+Do ustalenia pozostają:
+- Statusy zleceń i zasady publikacji.
+- Limity długości tekstów.
+- Zasady usuwania kont i danych.
+- Retencja wiadomości i zgłoszeń.
+- Uprawnienia moderatora.
+- Waluta budżetu i proponowanej ceny.
+
+Supabase wybrano jako backend i bazę danych.
+Obsługę kont zapisano w commicie 5b44859 na main 2026-10-09.
+Kod obejmuje rejestrację, logowanie, odczyt sesji i wylogowanie.
+Właściciel potwierdził działanie zmian w lokalnej przeglądarce.
+Następny etap: sprawdzenie konfiguracji bazy i zasad dostępu
+oraz trwały zapis i odczyt zleceń.
+Nie zweryfikowano jeszcze uprawnień ani reguł RLS.
+Hosting aplikacji pozostaje do ustalenia.
+Płatne usługi wymagają osobnej zgody właściciela.

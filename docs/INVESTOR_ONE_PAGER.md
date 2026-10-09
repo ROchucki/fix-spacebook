@@ -70,6 +70,8 @@ Adres działającego demo online: do uzupełnienia.
 
 ## Plan funkcjonalnego MVP
 
+Zakres MVP zatwierdzono 6 października 2026 r. Dokument odniesienia: docs/14-ZAKRES_MVP_I_DOSTEP.md.
+
 Planowany podstawowy proces:
 dodanie zlecenia → przeglądanie przez wykonawców →
 odpowiedź na zlecenie → kontakt między stronami.
@@ -80,6 +82,7 @@ Zakres do realizacji i potwierdzenia:
 - Zapisywanie zleceń i ofert.
 - Przeglądanie ogłoszeń według kategorii i lokalizacji.
 - Odpowiedź wykonawcy na zlecenie.
+- Prywatne rozmowy dostępne wyłącznie uczestnikom.
 - Zgłaszanie naruszeń i podstawowa moderacja.
 - Zasady ochrony danych i bezpieczna obsługa formularzy.
 
