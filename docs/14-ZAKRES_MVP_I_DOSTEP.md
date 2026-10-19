@@ -1,6 +1,6 @@
 # Fix&Spacebook — zakres MVP i dostęp
 
-Data zatwierdzenia: 2026-10-06
+Data zatwierdzenia: 2026-10-06. Aktualizacja informacji o technologii: 2026-10-19.
 
 ## Cel
 
@@ -82,6 +82,9 @@ numeru telefonu ani dokładnego adresu.
 
 ## Technologia i koszty
 
-Backend, baza i hosting nie zostały jeszcze wybrane.
+Supabase wybrano jako backend i bazę danych; decyzję odnotowuje dokument `13-PLAN_WERSJI_DOCELOWEJ.md`. Kod kont oraz wysyłania zleceń istnieje w głównej aplikacji, ale nie potwierdza poprawności schematu, przypisania właściciela i daty, RLS ani trwałości danych. Powyższe zasady są wymaganiami produktu, nie wynikiem testu konfiguracji.
+
+Według informacji właściciela odnotowanej w przekazanym pakiecie z 2026-10-19 hosting jest przygotowany, lecz podpięcie i wdrożenie pozostają wstrzymane. Konfiguracji dostawcy nie zweryfikowano.
+
 Płatne usługi wymagają osobnej zgody właściciela projektu.
 Do testów używamy wyłącznie fikcyjnych danych.
