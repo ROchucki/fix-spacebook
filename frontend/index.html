@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Fix&Spacebook - platforma lokalnych uslug w Polsce.">
-  <title>Fix&Spacebook | Lokalne uslugi</title>
+  <meta name="description" content="Fix&Spacebook - platforma lokalnych usług w Polsce.">
+  <title>Fix&Spacebook | Lokalne usługi</title>
   <link rel="stylesheet" href="style.css?v=buttons-1438">
 </head>
 <body>
@@ -46,10 +46,10 @@
 
   <main id="start">
     <section class="hero">
-      <p class="eyebrow">Lokalne uslugi w jednym miejscu</p>
-      <h1>Znajdz pomoc lub zaoferuj swoje uslugi.</h1>
+      <p class="eyebrow">Lokalne usługi w jednym miejscu</p>
+      <h1>Znajdź pomoc lub zaoferuj swoje usługi.</h1>
       <p class="lead">
-        Fix&amp;Spacebook laczy osoby, ktore potrzebuja pomocy,
+        Fix&amp;Spacebook łączy osoby, które potrzebują pomocy,
         z lokalnymi wykonawcami i firmami.
       </p>
 
@@ -67,16 +67,16 @@
 
     <section id="oferta-wykonawcy" class="request-section" aria-labelledby="provider-title" hidden>
       <div class="section-heading">
-        <p class="eyebrow">Dla wykonawcy uslug</p>
-        <h2 id="provider-title">Dodaj oferte uslug</h2>
+        <p class="eyebrow">Dla wykonawcy usług</p>
+        <h2 id="provider-title">Dodaj ofertę usług</h2>
         <p class="lead">
-          Opisz, jakie uslugi oferujesz. W MVP oferta nie jest jeszcze zapisywana.
+          Opisz, jakie usługi oferujesz. Oferta nie jest jeszcze zapisywana w bazie.
         </p>
       </div>
 
       <article id="provider-preview" hidden>
-        <h3>Podglad testowej oferty</h3>
-        <p>Tu po wyslaniu formularza pojawi sie oferta.</p>
+        <h3>Podgląd testowej oferty</h3>
+        <p>Tu po wysłaniu formularza pojawi się oferta.</p>
       </article>
 
       <form id="provider-form" class="request-form">
@@ -93,17 +93,17 @@
         </div>
 
         <div class="form-field">
-          <label for="provider-category">Kategoria uslugi</label>
+          <label for="provider-category">Kategoria usługi</label>
           <select id="provider-category" name="providerCategory" required>
-            <option value="">Wybierz kategorie</option>
-            <option>Naprawy samochodow</option>
-            <option>Naprawy rowerow</option>
+            <option value="">Wybierz kategorię</option>
+            <option value="Naprawy samochodow">Naprawy samochodów</option>
+            <option value="Naprawy rowerow">Naprawy rowerów</option>
             <option>Naprawy AGD i RTV</option>
-            <option>Sprzatanie</option>
+            <option value="Sprzatanie">Sprzątanie</option>
             <option>Prace ogrodowe</option>
             <option>Przeprowadzki</option>
-            <option>Opieka nad zwierzetami</option>
-            <option>Inna usluga</option>
+            <option value="Opieka nad zwierzetami">Opieka nad zwierzętami</option>
+            <option value="Inna usluga">Inna usługa</option>
           </select>
         </div>
 
@@ -114,44 +114,44 @@
               id="provider-location"
               name="providerLocation"
               type="text"
-              placeholder="Np. Warszawa, Mokotow"
+              placeholder="Np. Warszawa, Mokotów"
               required
             >
           </div>
 
           <div class="form-field">
-            <label for="provider-area">Promien dojazdu</label>
+            <label for="provider-area">Promień dojazdu</label>
             <select id="provider-area" name="providerArea" required>
-              <option value="">Wybierz promien</option>
-              <option value="0">Tylko w miescie</option>
+              <option value="">Wybierz promień</option>
+              <option value="0">Tylko w mieście</option>
               <option value="10">Do 10 km</option>
               <option value="25">Do 25 km</option>
               <option value="50">Do 50 km</option>
               <option value="100">Do 100 km</option>
-              <option value="indywidualnie">Ustale indywidualnie</option>
+              <option value="indywidualnie">Ustalę indywidualnie</option>
             </select>
           </div>
         </div>
 
         <div class="form-field">
-          <label for="provider-description">Opis oferty i doswiadczenia</label>
+          <label for="provider-description">Opis oferty i doświadczenia</label>
           <textarea
             id="provider-description"
             name="providerDescription"
             rows="5"
             minlength="20"
-            placeholder="Np. Od 5 lat serwisuje rowery. Oferuje regulacje hamulcow, przerzutek i podstawowe naprawy."
+            placeholder="Np. Od 5 lat serwisuję rowery. Oferuję regulację hamulców, przerzutek i podstawowe naprawy."
             required
           ></textarea>
           <p class="field-help">
-            Minimum 20 znakow. Opisz zakres uslug, doswiadczenie i najwazniejsze informacje.
-            Nie wpisuj danych wrazliwych.
+            Minimum 20 znaków. Opisz zakres usług, doświadczenie i najważniejsze informacje.
+            Nie wpisuj danych wrażliwych.
           </p>
         </div>
 
         <div class="form-actions">
           <button class="button button-primary" type="submit">
-            Dodaj oferte
+            Dodaj ofertę
           </button>
           <button
             id="close-provider-form"
@@ -172,23 +172,23 @@
         <p class="eyebrow">Dla osoby szukającej pomocy</p>
         <h2 id="request-title">Dodaj zlecenie</h2>
         <p class="lead">
-          Opisz, czego potrzebujesz. W kolejnym etapie zlecenie zostanie połączone z wykonawcami.
+          Opisz, czego potrzebujesz. Odpowiedzi wykonawców i prywatne rozmowy są planowane.
         </p>
       </div>
 
       <form id="request-form" class="request-form">
         <div class="form-field">
-          <label for="category">Kategoria uslugi</label>
+          <label for="category">Kategoria usługi</label>
           <select id="category" name="category" required>
-            <option value="">Wybierz kategorie</option>
-            <option>Naprawy samochodow</option>
-            <option>Naprawy rowerow</option>
+            <option value="">Wybierz kategorię</option>
+            <option value="Naprawy samochodow">Naprawy samochodów</option>
+            <option value="Naprawy rowerow">Naprawy rowerów</option>
             <option>Naprawy AGD i RTV</option>
-            <option>Sprzatanie</option>
+            <option value="Sprzatanie">Sprzątanie</option>
             <option>Prace ogrodowe</option>
             <option>Przeprowadzki</option>
-            <option>Opieka nad zwierzetami</option>
-            <option>Inna usluga</option>
+            <option value="Opieka nad zwierzetami">Opieka nad zwierzętami</option>
+            <option value="Inna usluga">Inna usługa</option>
           </select>
         </div>
 
@@ -199,10 +199,10 @@
             name="description"
             rows="5"
             minlength="20"
-            placeholder="Np. Potrzebuje naprawy pralki. Pralka nie odprowadza wody."
+            placeholder="Np. Potrzebuję naprawy pralki. Pralka nie odprowadza wody."
             required
           ></textarea>
-          <p class="field-help">Minimum 20 znakow. Opisz problem, miejsce wykonania uslugi, wazne szczegoly i oczekiwany termin. Nie wpisuj danych wrazliwych.</p>
+          <p class="field-help">Minimum 20 znaków. Opisz problem, miejsce wykonania usługi, ważne szczegóły i oczekiwany termin. Nie wpisuj danych wrażliwych.</p>
         </div>
 
         <div class="form-row">
@@ -212,13 +212,13 @@
               id="location"
               name="location"
               type="text"
-              placeholder="Np. Warszawa, Mokotow"
+              placeholder="Np. Warszawa, Mokotów"
               required
             >
           </div>
 
           <div class="form-field">
-            <label for="budget">Budzet (opcjonalnie)</label>
+            <label for="budget">Budżet (opcjonalnie)</label>
             <input
               id="budget"
               name="budget"
@@ -243,7 +243,7 @@
     <h2 id="account-title">Logowanie i rejestracja</h2>
   </div>
   <p id="auth-status" class="message" role="status" aria-live="polite">
-    Obsługa kont oczekuje na podłączenie.
+    Trwa inicjalizacja obsługi kont.
   </p>
   <div id="auth-forms">
     <form id="login-form" class="request-form">
@@ -317,19 +317,19 @@
       </div>
 
       <div class="status-card">
-        <h3>Gotowe</h3>
+        <h3>Zaimplementowane w kodzie</h3>
         <ul class="status-list">
-          <li>Strona startowa Fix&amp;Spacebook</li>
-          <li>Kategorie uslug lokalnych</li>
-          <li>Formularz dodania zlecenia</li>
-          <li>Walidacja opisu: minimum 20 znakow</li>
-          <li>Test lokalny na Androidzie</li>
+          <li>Strona startowa Fix&amp;Spacebook i kategorie usług</li>
+          <li>Formularz zlecenia i walidacja opisu: minimum 20 znaków</li>
+          <li>Formularz wykonawcy z testowym podglądem oferty, bez zapisu do bazy</li>
+          <li>Kod kont Supabase i wysyłania zleceń do bazy</li>
         </ul>
+        <p>Obecność kodu nie potwierdza poprawności uprawnień, trwałości danych ani gotowości do publikacji. Pełny test działania pozostaje do wykonania.</p>
 
-        <h3>Nastepny etap</h3>
+        <h3>Następny etap</h3>
         <p class="next-step">
-          Formularz dla wykonawcy uslug po kliknieciu przycisku
-          „Wykonam usługi”.
+          Sprawdzenie konfiguracji bazy i zasad dostępu oraz potwierdzenie
+          trwałego zapisu i odczytu zleceń z różnych kont.
         </p>
       </div>
     </section>
@@ -374,7 +374,7 @@
 </main>
 
   <footer class="footer">
-    <p>Fix&amp;Spacebook - projekt MVP lokalnych uslug.</p>
+    <p>Fix&amp;Spacebook - projekt MVP lokalnych usług.</p>
   </footer>
 
   <script src="app.js"></script>
