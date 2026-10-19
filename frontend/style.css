@@ -460,36 +460,10 @@ h1 {
   outline-offset: 3px;
 }
 
-/* Przyciski główne: jeden rząd i wyśrodkowane napisy */
+/* Przyciski główne: zachowany końcowy układ flex */
 .hero .actions {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.hero .actions > .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-width: 0;
-  min-height: 56px;
-  padding: 12px 8px;
-  text-align: center;
-  text-decoration: none;
-  line-height: 1.25;
-  overflow-wrap: anywhere;
-}
-
-@media (max-width: 440px) {
-  .hero .actions > .button {
-    font-size: 0.9rem;
-  }
-}
-
-/* Przyciski hero obok siebie */
-.hero .actions {
-  display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 8px;
@@ -502,47 +476,61 @@ h1 {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  min-height: 56px;
   padding: 12px 6px;
   font-size: clamp(12px, 3.5vw, 16px);
   text-align: center;
   text-decoration: none;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
   white-space: nowrap;
 }
 
-#konto .account-card-heading{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px}#konto .account-card-heading h3{margin:0}#konto .account-brand{margin-left:auto;font-size:clamp(18px,5vw,26px);font-weight:800;color:#426b7a;letter-spacing:-.5px}
-
-#konto .account-help{margin-left:auto;max-width:100%;font-size:13px;color:#175f7b}#konto .account-help summary{cursor:pointer;font-weight:600;text-align:right}#konto .account-help p{max-width:260px;line-height:1.5}#konto .account-help a{color:#175f7b;text-decoration:underline}#konto .form-field .field-help{margin:6px 0 0;font-size:12px;line-height:1.45;color:#52616b}
-
-/* Logo w tle nagłówków konta */
+/* Konto: scalone reguły bez projektowania nowego wyglądu */
 #konto .account-card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
   position: relative;
   isolation: isolate;
   min-height: 64px;
+  flex-direction: column;
 }
-#konto .account-card-heading::before {
-  content: "Fix&Spacebook";
-  position: absolute;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #426b7a;
-  opacity: .13;
-  font-size: clamp(18px, 4.8vw, 28px);
+#konto .account-card-heading h3 { margin: 0; }
+#konto .account-brand {
+  margin-left: auto;
+  font-size: clamp(18px, 5vw, 26px);
   font-weight: 800;
-  letter-spacing: -.8px;
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: -1;
+  color: #426b7a;
+  letter-spacing: -.5px;
 }
 #konto .account-help {
+  margin-left: auto;
+  max-width: 100%;
+  font-size: 13px;
+  color: #175f7b;
   flex: 0 1 48%;
   min-width: 0;
 }
 #konto .account-help summary {
+  cursor: pointer;
+  font-weight: 800;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #f4c400;
+}
+#konto .account-help p { max-width: 260px; line-height: 1.5; }
+#konto .account-help a { color: #175f7b; text-decoration: underline; }
+#konto .form-field .field-help {
+  margin: 6px 0 0;
   font-size: 12px;
   line-height: 1.45;
+  color: #52616b;
 }
-
 #konto .account-card-heading::before { content: none; }
 #konto .account-card-heading > .account-logo-color {
   position: absolute;
@@ -564,26 +552,10 @@ h1 {
   position: relative;
   z-index: 1;
 }
-
-#konto .account-help summary {
-  color: #f4c400;
-}
-
-#konto .account-card-heading {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
 #konto .account-card-heading > .account-help {
   flex: none;
   width: 100%;
   margin-left: 0;
-}
-#konto .account-help summary {
-  color: #f4c400;
-  text-align: left;
-  font-size: 14px;
-  font-weight: 800;
 }
 
 body { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
