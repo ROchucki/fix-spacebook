@@ -30,7 +30,7 @@ Używamy do:
 
 Przykłady:
 - Opisz funkcję dodawania zlecenia.
-- Przygotuj treść do pliku docs/02-MVP.md.
+- Przygotuj treść do istniejącego pliku docs/02-ZAKRES_PIERWSZEJ_WERSJI.md.
 - Wyjaśnij błąd z terminala i podaj jedną komendę na teraz.
 
 ## 2. Thinking
@@ -91,12 +91,14 @@ Używamy do:
 Nie używamy Computer do prostych pytań, krótkich poprawek
 ani pojedynczych komend w Termuxie.
 
+Nazwy trybów są wskazówką organizacji pracy, nie gwarancją dostępności narzędzia lub modelu. Nie deklarujemy użycia trybu, którego faktycznie nie uruchomiono.
+
 ## Zasady bezpieczeństwa
 
 - Nie przekazujemy haseł, tokenów, kodów odzyskiwania ani kluczy SSH.
 - Nie zapisujemy sekretów w repozytorium GitHub.
-- Używamy pliku .env tylko lokalnie.
-- Do repozytorium trafia wyłącznie .env.example bez prawdziwych danych.
+- Pliki `.env` z rzeczywistymi wartościami pozostają lokalne; wersjonujemy wyłącznie przykłady bez sekretów.
+- Publiczny klucz publishable Supabase w konfiguracji frontendu odróżniamy od klucza administracyjnego; jego obecność nie potwierdza poprawności RLS.
 - Każdy ważny dostęp ma właściciela, 2FA i sposób odzyskania konta.
 - Dane użytkowników zbieramy tylko wtedy, gdy są potrzebne do działania funkcji.
 - Funkcje płatności, kredytów i monet analizujemy prawnie przed wdrożeniem.
@@ -114,6 +116,23 @@ Każda ważna decyzja dotycząca:
 
 powinna zostać zapisana w dokumentacji projektu wraz z datą,
 powodem decyzji i dalszym krokiem.
+
+## Zasady pracy LLM z repozytorium
+
+- Najpierw odczytujemy bieżący stan gałęzi i pliki związane z zadaniem, w tym `PROJECT_CONTEXT.md`.
+- Czytamy `ZASADY_WSPOLNEJ_PRACY.md`, jeżeli jest dostępny. Jeśli nie jest dostępny, wskazujemy brak i nie wymyślamy jego treści.
+- Opieramy ustalenia o projekcie na repozytorium i danych właściciela. Nie zgadujemy zawartości plików, logów ani stanu Termuxa.
+- Nie prosimy właściciela o pliki dostępne przez GitHub; najpierw odczytujemy je samodzielnie.
+- Brak treści wcześniejszego zadania lub raportu w kontekście nie jest dowodem, że zadania lub raportu nie było. Nie rekonstruujemy zaleceń z domysłów.
+- Raport jest listą zaleceń do sprawdzenia względem bieżących plików. Oddzielamy poprawione pozycje od pominiętych i niepotwierdzonych. Nie ogłaszamy wykonania całego raportu bez porównania z jego pełną treścią.
+- Aktualizujemy istniejące dokumenty we właściwych miejscach. Nie tworzymy nowego raportu, kopii, pliku do podmiany ani równoległych zasad bez zatwierdzonej potrzeby.
+- Najpierw analiza i plan, następnie dokładna zmiana. Kod i komendy mają wskazywać plik, miejsce oraz gotowy fragment; preferujemy Android i Termux bez roota.
+- Przed zapisem w repozytorium przedstawiamy dokładny zakres i treść do zatwierdzenia. Zgoda nie obejmuje innych plików ani później rozszerzonego zakresu.
+- Nie dodajemy ani nie usuwamy automatycznie lokalnych kopii, ikon, pliku `=` lub innych nieprzejrzanych danych.
+- Nie zmieniamy osobnego demo, hostingu ani Supabase w ramach poprawki dokumentacji.
+- Osobno potwierdzamy implementację, test, commit, push i wdrożenie. Odczyt kodu nie jest testem przeglądarkowym, a komunikat sukcesu formularza nie zastępuje kontroli trwałości i uprawnień.
+- Po wykonaniu zatwierdzonych zmian sprawdzamy zapis i podajemy rzeczywisty wynik oraz pozostałe ograniczenia, bez kolejnego pliku podsumowania.
+- Zasady korzystania z LLM przy pracy nad projektem nie oznaczają wdrożenia AI jako funkcji produktu.
 
 ## Najważniejsza zasada
 

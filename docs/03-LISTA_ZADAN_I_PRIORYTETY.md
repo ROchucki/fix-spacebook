@@ -1,99 +1,112 @@
-# Lista zadań i priorytety — Fix&Spacebook
+# Lista zadan i priorytety — Fix&Spacebook
 
-Aktualizacja: 2026-10-07
+Aktualizacja: 2026-10-19.
 
 ## Zasady oceny
 
-- [x] oznacza zadanie wykonane i potwierdzone.
-- [ ] oznacza zadanie niewykonane lub wymagające sprawdzenia.
-- Widok w demo nie oznacza działającej funkcji MVP.
-- Postęp przygotowania, demo i MVP liczymy osobno.
-- Zakres MVP określa docs/14-ZAKRES_MVP_I_DOSTEP.md.
-- Dokument 02 opisuje etap przygotowania repozytorium.
+- `[x]` oznacza wykonanie i potwierdzenie w zakresie opisanym przy zadaniu.
+- `[ ]` oznacza brak wykonania albo brak wymaganej weryfikacji.
+- Obecnosc kodu, test przegladarkowy, commit, push i wdrozenie to osobne fakty.
+- Glowna aplikacja i osobne demo maja osobne statusy.
+- Zakres MVP: `14-ZAKRES_MVP_I_DOSTEP.md`; biezacy kontekst: `PROJECT_CONTEXT.md`.
+- Dokument 02 opisuje etap przygotowawczy.
 
 ## Etap A — przygotowanie projektu
 
-- [x] Prywatne repozytorium GitHub — według wcześniejszej checklisty.
-- [x] Połączenie SSH z GitHub w Termuxie.
+- [x] Prywatne repozytorium GitHub — wedlug wczesniejszej checklisty; widocznosci nie sprawdzano ponownie.
+- [x] Polaczenie SSH z GitHub w Termuxie — wedlug wczesniejszej checklisty.
 - [x] Dokument wizji projektu.
 - [x] Dokument zakresu pierwszej wersji.
-- [x] Mapa plików i katalogów.
-- [x] Zasady bezpieczeństwa.
+- [x] Mapa plikow i katalogow.
+- [x] Zasady bezpieczenstwa.
 - [x] Instrukcja startu w Termuxie.
-- [ ] Sprawdzenie kompletności i spójności dokumentacji.
-- [x] Aktualizacja README.md.
-- [ ] Ostateczny przegląd etapu przygotowawczego.
+- [ ] Sprawdzenie kompletnosci i spojnosci calej dokumentacji, w tym dokumentow 13 i opisu inwestorskiego.
+- [ ] Potwierdzenie zapisu i odczytu aktualizowanego pakietu README, mapy, checklisty, zasad AI/LLM i punktu kontrolnego.
+- [ ] Odnalezienie pelnego raportu audytu i porownanie wszystkich jego zalecen; przekazany JSON nie zawiera pelnego raportu.
+- [ ] Odnalezienie brakujacego pliku zasad wspolnej pracy bez zgadywania jego tresci.
+- [ ] Ostateczny przeglad etapu przygotowawczego.
 
-## Etap B — sprawdzenie demo
+## Etap B — osobne demo
 
-Frontend istnieje, ale poniższe testy wymagają potwierdzenia.
+Punkt odniesienia: `demo-baseline-2026-10-07`. Ponizsze testy wymagaja potwierdzenia dla osobnego repo demo, nie glownej aplikacji.
 
-- [ ] Strona uruchamia się w przeglądarce na Androidzie.
-- [ ] Kategorie i formularz zlecenia działają poprawnie.
-- [ ] Formularz wykonawcy i promień dojazdu działają poprawnie.
-- [ ] Walidacja opisu działa poprawnie.
-- [ ] Wyszukiwanie i podgląd oferty działają poprawnie.
-- [ ] Demo jasno informuje, że nie publikuje prawdziwych danych.
-- [ ] Zapisano wyniki testów i znalezione błędy.
+- [ ] Strona uruchamia sie w przegladarce na Androidzie.
+- [ ] Kategorie i formularz zlecenia dzialaja poprawnie.
+- [ ] Formularz wykonawcy i promien dojazdu dzialaja poprawnie.
+- [ ] Walidacja opisu dziala poprawnie.
+- [ ] Wyszukiwanie i podglad oferty dzialaja poprawnie.
+- [ ] Demo jasno informuje, czy publikuje lub zapisuje dane.
+- [ ] Zapisano wyniki testow i znalezione bledy.
 
-## Etap C — decyzje przed budową MVP
+## Etap C — decyzje przed publikacja MVP
 
-- [ ] Wybrać backend, bazę danych i hosting.
-- [ ] Ustalić statusy zleceń i zasady publikacji.
-- [ ] Ustalić limity długości tekstów.
-- [ ] Ustalić zasady usuwania kont i danych.
-- [ ] Ustalić retencję wiadomości i zgłoszeń.
-- [ ] Ustalić uprawnienia moderatora.
-- [ ] Ustalić walutę budżetu i proponowanej ceny.
-- [ ] Ustalić obszar i kategorie pierwszego pilotażu.
-- [ ] Ustalić cele pilotażu oraz sposób ich pomiaru.
+- [x] Wybrano Supabase jako backend i baze — odnotowane w dokumencie 13.
+- [ ] Zweryfikowac konfiguracje przygotowanego hostingu; podpiecie i wdrozenie pozostaja wstrzymane wedlug przekazanej informacji wlasciciela.
+- [ ] Ustalic statusy zlecen i zasady publikacji.
+- [ ] Ustalic limity dlugosci tekstow.
+- [ ] Ustalic zasady usuwania kont i danych.
+- [ ] Ustalic retencje wiadomosci i zgloszen.
+- [ ] Ustalic uprawnienia moderatora.
+- [ ] Zatwierdzic walute budzetu i proponowanej ceny; obecnosc PLN w interfejsie nie zamyka decyzji produktowej.
+- [ ] Ustalic obszar i kategorie pierwszego pilotazu.
+- [ ] Ustalic cele pilotazu oraz sposob ich pomiaru.
 
-Płatne usługi wymagają osobnej zgody właściciela.
-W testach używamy wyłącznie fikcyjnych danych.
+Platne uslugi wymagaja osobnej zgody wlasciciela. W testach uzywamy fikcyjnych danych.
 
-## Etap D — funkcjonalne MVP
+## Etap D — glowna aplikacja
 
-Wykonanie każdego zadania wymaga testu działania.
-Brak zaznaczenia nie przesądza, że nie istnieje żaden fragment kodu.
+Kod sprawdzony na `f39b3ae`; istnienie implementacji nie zamyka testow.
 
-- [ ] Konta i logowanie; e-mail niewidoczny publicznie.
-- [ ] Jedno konto obsługuje rolę klienta i wykonawcy.
-- [ ] Trwały zapis zleceń z właścicielem i datą utworzenia.
-- [ ] Trwały zapis ofert wykonawców.
-- [ ] Publiczne przeglądanie opublikowanych ofert.
-- [ ] Przeglądanie otwartych zleceń przez wykonawców.
-- [ ] Wyszukiwanie i filtrowanie według kategorii i lokalizacji.
-- [ ] Edycja i zamykanie własnych ogłoszeń.
-- [ ] Odpowiedzi wykonawców na zlecenia.
-- [ ] Dostęp do odpowiedzi tylko dla autora i właściciela zlecenia.
-- [ ] Prywatna rozmowa dostępna wyłącznie uczestnikom.
-- [ ] Zgłoszenia naruszeń i status ich rozpatrzenia.
-- [ ] Obsługa zgłoszeń i ukrywanie treści przez administratora.
-- [ ] Egzekwowanie uprawnień po stronie backendu.
-- [ ] Brak publicznego e-maila, telefonu i dokładnego adresu.
+- [x] Kod wysylania zlecen do `jobs`, kontroli zalogowania, obslugi bledow i zwracania ID istnieje w `app.js`.
+- [x] Kod podgladu oferty wykonawcy istnieje; nie zapisuje oferty do bazy.
+- [ ] Konta i logowanie: powtorzyc test; historyczne potwierdzenie wlasciciela nie obejmuje nowej kontroli uprawnien i ukrywania e-maila.
+- [ ] Jedno konto obsluguje role klienta i wykonawcy.
+- [ ] Zweryfikowac schemat `jobs`, automatyczne przypisanie wlasciciela i daty oraz RLS.
+- [ ] Potwierdzic trwaly zapis zlecen z wlascicielem i data utworzenia.
+- [ ] Trwaly zapis ofert wykonawcow.
+- [ ] Publiczne przegladanie opublikowanych ofert.
+- [ ] Przegladanie otwartych zlecen przez wykonawcow.
+- [ ] Wyszukiwanie i filtrowanie ogloszen wedlug kategorii i lokalizacji; filtrowanie kart kategorii nie jest wyszukiwaniem ogloszen.
+- [ ] Edycja i zamykanie wlasnych ogloszen.
+- [ ] Odpowiedzi wykonawcow na zlecenia.
+- [ ] Dostep do odpowiedzi tylko dla autora i wlasciciela zlecenia.
+- [ ] Prywatna rozmowa dostepna wylacznie uczestnikom.
+- [ ] Zgloszenia naruszen i status ich rozpatrzenia.
+- [ ] Obsluga zgloszen i ukrywanie tresci przez administratora.
+- [ ] Egzekwowanie uprawnien po stronie backendu.
+- [ ] Brak publicznego e-maila, telefonu i dokladnego adresu.
 
-## Etap E — testy i pilotaż
+## Etap E — testy i pilotaz
 
-- [ ] Test: zlecenie → odpowiedź → prywatna rozmowa.
-- [ ] Testy dostępu z użyciem różnych kont.
-- [ ] Test trwałości danych i obsługi błędów.
+- [ ] Test: zlecenie → odpowiedz → prywatna rozmowa.
+- [ ] Testy dostepu z uzyciem roznych kont.
+- [ ] Test trwalosci danych, odczytu po odswiezeniu i obslugi bledow.
 - [ ] Procedura kopii zapasowej i test odtworzenia.
-- [ ] Test obsługi na telefonie.
+- [ ] Test obslugi na telefonie.
 - [ ] Przygotowanie zasad korzystania i informacji o danych.
-- [ ] Wdrożenie wersji pilotażowej.
+- [ ] Wdrozenie wersji pilotazowej po osobnym zatwierdzeniu.
 - [ ] Testy z klientami i wykonawcami.
 
-## Poza początkowym MVP
+## Znane niespojnosci do osobnej poprawki
 
-- Płatności.
-- Kolejne kraje i języki.
+- [ ] `frontend/index.html`: sekcja „Nastepny etap” zapowiada istniejacy juz formularz wykonawcy.
+- [ ] `frontend/app.js`: sprawdzic i poprawic dzielenie zapytania wyszukiwania zapisane jako `/s+/`; wykonac test wielu slow.
+- [ ] Ujednolicic dokument 13 z pozniejsza informacja o przygotowanym, ale niepodlaczonym hostingu.
+- [ ] Zaktualizowac opis inwestorski o stan glownej aplikacji bez przenoszenia go na osobne demo.
+
+Dokument 12 odnotowuje obie poprawki P1 jako wykonane 2026-10-07. Nie otwieramy ich ponownie jako niewykonanych tylko z powodu starego README.
+
+## Poza poczatkowym MVP
+
+- Platnosci.
+- Kolejne kraje i jezyki.
 - Zaawansowane dopasowanie.
 - Osobna aplikacja APK.
-- AI, OSINT i automatyzacje niezwiązane z podstawowym procesem.
+- AI, OSINT i automatyzacje niezwiązane z podstawowym procesem produktu; nie dotyczy to zasad korzystania z LLM podczas prac nad repozytorium.
 
-## Najbliższa kolejność
+## Najblizsza kolejnosc
 
-1. Uporządkować dokumentację i README.
-2. Sprawdzić obecną wersję demo.
-3. Ustalić technologię oraz brakujące zasady MVP.
-4. Budować i testować pełny proces zlecenia.
+1. Domknac dokumentacje i porownac z pelnym raportem, bez nowych plikow zastepczych.
+2. W osobno zatwierdzonym zakresie poprawic i przetestowac wskazane niespojnosci frontendu.
+3. Zweryfikowac baze i dostep, potem zapis, trwalosc i odczyt z roznych kont.
+4. Rozwijac oferty, odpowiedzi, rozmowy i moderacje.
