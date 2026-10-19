@@ -1,59 +1,54 @@
 # Fix&Spacebook — plan wersji docelowej
 
-Data ustalenia: 2026-10-06
+Data ustalenia: 2026-10-06. Aktualizacja: 2026-10-19.
 
 ## Status
 
-Zatwierdzono budowę aplikacji docelowej etapami.
-Dokument 02-ZAKRES_PIERWSZEJ_WERSJI.md opisuje wcześniejszy
-etap przygotowania dokumentacji.
+Zatwierdzono budowę aplikacji docelowej etapami. Dokument `02-ZAKRES_PIERWSZEJ_WERSJI.md` opisuje wcześniejszy etap przygotowania dokumentacji. Zakres MVP i zasady dostępu zatwierdzono 2026-10-06 w `14-ZAKRES_MVP_I_DOSTEP.md`.
 
-Działające demo znajduje się w osobnym repozytorium:
-ROchucki/fix-spacebook-frontend-demo
-Ostatni potwierdzony commit demo: 2bd7b14.
+Główna aplikacja znajduje się w `ROchucki/fix-spacebook`, na gałęzi `main`. Stan implementacji opisany poniżej odnosi się do kodu z commita `f39b3ae`, nie do osobnego demo.
+
+Demo znajduje się w `ROchucki/fix-spacebook-frontend-demo`. Punkt odniesienia: `demo-baseline-2026-10-07`; ostatni historycznie odnotowany commit: `2bd7b14`. Bieżącego działania i stanu demo nie sprawdzono podczas tej kontroli.
+
+## Implementacja a potwierdzenie działania
+
+- Supabase wybrano jako backend i bazę danych.
+- Kod kont zapisano w commicie `5b44859` z 2026-10-09: rejestracja, logowanie, sesja i wylogowanie. Wcześniejszy punkt kontrolny odnotowuje potwierdzenie właściciela w lokalnej przeglądarce; testu nie powtórzono podczas tej kontroli.
+- W `app.js`, commit `f39b3ae`, istnieje wysyłanie zlecenia do `jobs` po sprawdzeniu zalogowania, obsługa błędów i zwracanie ID.
+- Formularz wykonawcy tworzy testowy podgląd oferty; nie zapisuje jej do bazy.
+- Nie zweryfikowano schematu tabel, automatycznego przypisania właściciela i daty, RLS, trwałości danych ani odczytu zapisanych zleceń.
+- Nie potwierdzono pełnego procesu odpowiedzi, prywatnych rozmów i moderacji ani gotowości do publikacji.
+
+## Hosting
+
+Informacja właściciela odnotowana w przekazanym pakiecie z 2026-10-19: hosting jest przygotowany, lecz podpięcie i wdrożenie pozostają wstrzymane. Konfiguracji dostawcy nie zweryfikowano. Zastępuje to wcześniejszy wpis o hostingu pozostającym do ustalenia; nie jest potwierdzeniem publicznego wdrożenia.
 
 ## Kolejność realizacji
 
-1. Ustalenie zakresu produktu i zasad dostępu do danych.
-2. Wybór backendu, bazy danych oraz hostingu.
-3. Konta użytkowników i kontrola uprawnień.
-4. Zapis zleceń i ofert wykonawców.
-5. Wyświetlanie danych oraz obsługa błędów.
-6. Odpowiedzi na zlecenia, prywatne rozmowy oraz zgłoszenia naruszeń i moderacja.
-7. Testy bezpieczeństwa, kopie zapasowe i wdrożenie.
+1. Domknąć dokumentację i brakujące decyzje dotyczące produktu oraz dostępu do danych.
+2. Sprawdzić rzeczywisty schemat `jobs`, właściciela, datę i RLS.
+3. Potwierdzić zapis, trwałość, odczyt oraz uprawnienia z różnych kont.
+4. Wdrożyć i przetestować trwały zapis ofert wykonawców oraz wyświetlanie danych i obsługę błędów.
+5. Rozwijać odpowiedzi na zlecenia i prywatne rozmowy zgodnie z zakresem MVP.
+6. Wdrożyć zgłoszenia naruszeń i moderację.
+7. Wykonać testy bezpieczeństwa, kopii zapasowej i odtworzenia; dopiero po zatwierdzeniu podłączyć hosting i wdrożyć pilotaż.
 
-## Koszty
+## Decyzje do podjęcia
 
-Na etapie przygotowania nie uruchamiamy płatnych usług.
-Każda płatna usługa wymaga osobnej zgody właściciela projektu.
-Przed wyborem dostawcy sprawdzamy ceny, limity i warunki.
-
-## Bezpieczeństwo
-
-Obowiązuje dokument 05-ZASADY_BEZPIECZENSTWA.md.
-Nie zapisujemy sekretów ani rzeczywistych danych użytkowników
-w repozytorium.
-Do testów używamy danych fikcyjnych.
-
-## Najbliższe zadanie
-
-Podstawowe pola i zasady dostępu zatwierdzono
-w docs/14-ZAKRES_MVP_I_DOSTEP.md dnia 2026-10-06.
-
-Do ustalenia pozostają:
 - Statusy zleceń i zasady publikacji.
 - Limity długości tekstów.
 - Zasady usuwania kont i danych.
 - Retencja wiadomości i zgłoszeń.
 - Uprawnienia moderatora.
-- Waluta budżetu i proponowanej ceny.
+- Waluta budżetu i proponowanej ceny; obecność PLN w interfejsie nie zastępuje zatwierdzenia zasad produktu.
+- Obszar, kategorie, cele i mierniki pierwszego pilotażu.
 
-Supabase wybrano jako backend i bazę danych.
-Obsługę kont zapisano w commicie 5b44859 na main 2026-10-09.
-Kod obejmuje rejestrację, logowanie, odczyt sesji i wylogowanie.
-Właściciel potwierdził działanie zmian w lokalnej przeglądarce.
-Następny etap: sprawdzenie konfiguracji bazy i zasad dostępu
-oraz trwały zapis i odczyt zleceń.
-Nie zweryfikowano jeszcze uprawnień ani reguł RLS.
-Hosting aplikacji pozostaje do ustalenia.
-Płatne usługi wymagają osobnej zgody właściciela.
+## Koszty
+
+Nie uruchamiamy płatnych usług bez osobnej zgody właściciela. Przed wyborem dostawcy sprawdzamy ceny, limity i warunki. Harmonogram i koszty pozostają do uzgodnienia.
+
+## Bezpieczeństwo i współpraca
+
+Obowiązują `05-ZASADY_BEZPIECZENSTWA.md` oraz zasady AI/LLM w `11-SKILLS_I_TRYBY_PRACY_AI.md`. Nie zapisujemy sekretów ani rzeczywistych danych użytkowników w repozytorium. Testujemy na danych fikcyjnych.
+
+Stan, zadania i granice weryfikacji przechowują `PROJECT_CONTEXT.md` oraz `03-LISTA_ZADAN_I_PRIORYTETY.md`. Zmiany demo, hostingu i Supabase wymagają osobno zatwierdzonego zakresu.

@@ -1,128 +1,72 @@
- r# Fix&Spacebook — opis dla inwestora
+# Fix&Spacebook — opis dla inwestora
 
-Wersja: 0.1
-Data: 2026-10-06
-Etap: demonstracyjny frontend i planowanie funkcjonalnego MVP.
+Wersja: 0.2. Aktualizacja: 2026-10-19.
+Etap: rozwój funkcjonalnego MVP; frontend oraz kod integracji kont i wysyłania zleceń do Supabase. Nie potwierdzono gotowości do publikacji.
 
 ## Problem
 
-Hipoteza do zweryfikowania:
-klienci potrzebują prostego sposobu znalezienia lokalnego
-wykonawcy konkretnej usługi, a wykonawcy — dotarcia
-do osób potrzebujących pomocy w ich obszarze działania.
+Hipoteza do zweryfikowania: klienci potrzebują prostego sposobu znalezienia lokalnego wykonawcy konkretnej usługi, a wykonawcy — dotarcia do osób potrzebujących pomocy w ich obszarze działania.
 
-Projekt ma ograniczyć trudności związane z opisaniem
-potrzeby, określeniem lokalizacji i znalezieniem
-odpowiedniej oferty.
+Projekt ma ograniczyć trudności związane z opisaniem potrzeby, określeniem lokalizacji i znalezieniem odpowiedniej oferty.
 
 ## Rozwiązanie
 
-Fix&Spacebook to projekt platformy usług lokalnych
-o docelowym zasięgu obejmującym Polskę, Europę i świat,
-łączącej klientów z osobami i firmami wykonującymi usługi.
+Fix&Spacebook to projekt platformy usług lokalnych, łączącej klientów z osobami i firmami wykonującymi usługi. Start w Polsce; docelowo kolejne rynki europejskie i światowe, etapami. Zasięg międzynarodowy jest celem rozwoju, nie obecną dostępnością produktu. Usługi pozostają lokalne, zgodnie z obszarem działania wykonawcy. Kraje i terminy wdrożeń pozostają do ustalenia.
 
-Plan zakłada etapowy rozwój:
-Polska → kolejne rynki europejskie → rynki światowe.
+Klient opisuje potrzebę, wybiera kategorię i lokalizację. Wykonawca przedstawia ofertę, zakres usług i obszar dojazdu.
 
-Platforma ma być dostępna na kolejnych rynkach,
-natomiast usługi pozostają lokalne, zgodnie
-z obszarem działania wykonawcy.
+Kategorie początkowe: naprawy samochodów, rowerów, AGD i RTV, sprzątanie, prace ogrodowe, przeprowadzki oraz opieka nad zwierzętami. Celem jest ułatwienie znalezienia wykonawcy legalnej usługi. Procedury weryfikacji i moderacji wymagają dopracowania.
 
-Zasięg międzynarodowy jest celem rozwoju,
-a nie obecną funkcją demo. Kraje i terminy wdrożeń
-pozostają do ustalenia.
+## Główna aplikacja — stan implementacji
 
-Klient opisuje potrzebę, wybiera kategorię i lokalizację.
-Wykonawca przedstawia ofertę, zakres usług i obszar dojazdu.
+Repozytorium: `ROchucki/fix-spacebook`. Podstawa kontroli kodu: commit `f39b3ae`.
 
-Kategorie początkowe:
-naprawy samochodów, rowerów, AGD i RTV, sprzątanie,
-prace ogrodowe, przeprowadzki oraz opieka nad zwierzętami.
-
-Celem jest ułatwienie znalezienia wykonawcy legalnej,
-konkretnej usługi. Procedury weryfikacji i moderacji
-wymagają dopracowania.
-
-## Obecne demo
-
-Przygotowano demonstracyjny frontend w HTML, CSS
-i JavaScript oraz osobne repozytorium demo.
-
-Kod obejmuje:
-- Stronę startową i prezentację kategorii.
-- Formularz zlecenia klienta: kategorię, opis,
-  lokalizację i opcjonalny budżet.
-- Formularz wykonawcy: nazwę, kategorię, lokalizację,
-  promień dojazdu oraz opis oferty.
-- Walidację opisu: minimum 20 znaków.
+Frontend HTML, CSS i JavaScript obejmuje:
+- Stronę startową, kategorie i podkategorie oraz kod filtrowania kart kategorii.
+- Formularz zlecenia: kategorię, opis minimum 20 znaków, lokalizację i opcjonalny budżet. Kod rozdziela miejscowość i opcjonalną dzielnicę po przecinku.
 - Podpowiedzi opisu zależne od kategorii.
-- Otwieranie i zamykanie formularza wykonawcy.
-- Testowy podgląd nazwy wykonawcy po wysłaniu formularza.
+- Formularz wykonawcy: nazwę, kategorię, lokalizację, promień dojazdu i opis; otwieranie, zamykanie i testowy podgląd tych danych. Oferta nie jest zapisywana do bazy.
+- Kod rejestracji, logowania, sesji i wylogowania Supabase; commit kont `5b44859`.
+- Wysyłanie zlecenia do `jobs` po sprawdzeniu użytkownika, obsługę błędów i zwracanie ID; commit `f39b3ae`.
 
-Demo nie zapisuje danych ani nie wysyła ich na serwer.
-Nie realizuje jeszcze faktycznego kojarzenia stron,
-obsługi kont ani odpowiedzi na zlecenia.
+Istnienie kodu nie oznacza potwierdzenia poprawności konfiguracji bazy, przypisania właściciela i daty, RLS, trwałości ani odczytu danych. Wcześniejszy punkt kontrolny odnotowuje lokalne potwierdzenie działania kont przez właściciela; testu nie powtórzono podczas tej kontroli. Nie potwierdzono faktycznego kojarzenia stron, pełnej obsługi odpowiedzi ani prywatnych rozmów.
 
-Repozytorium demo:
-https://github.com/ROchucki/fix-spacebook-frontend-demo
+## Osobne demo i hosting
 
-Adres działającego demo online: do uzupełnienia.
+Osobne repozytorium demo: `ROchucki/fix-spacebook-frontend-demo`. Punkt odniesienia: `demo-baseline-2026-10-07`. Aktualnego stanu demo nie sprawdzono; nie przypisujemy mu funkcji głównej aplikacji. Nie potwierdzono adresu działającego demo online.
+
+Według informacji właściciela odnotowanej w przekazanym pakiecie z 2026-10-19 hosting jest przygotowany, ale podpięcie i wdrożenie pozostają wstrzymane. Konfiguracji nie zweryfikowano. Push do GitHub nie potwierdza publicznego wdrożenia.
 
 ## Plan funkcjonalnego MVP
 
-Zakres MVP zatwierdzono 6 października 2026 r. Dokument odniesienia: docs/14-ZAKRES_MVP_I_DOSTEP.md.
+Zakres zatwierdzono 2026-10-06 w `docs/14-ZAKRES_MVP_I_DOSTEP.md`. Podstawowy proces docelowy: dodanie zlecenia → przeglądanie przez wykonawców → odpowiedź → prywatny kontakt między stronami.
 
-Planowany podstawowy proces:
-dodanie zlecenia → przeglądanie przez wykonawców →
-odpowiedź na zlecenie → kontakt między stronami.
-
-Zakres do realizacji i potwierdzenia:
-- Backend i baza danych.
+Do realizacji lub potwierdzenia pozostają:
+- Konfiguracja i kontrola uprawnień bazy Supabase.
 - Konta oraz podstawowe profile klientów i wykonawców.
-- Zapisywanie zleceń i ofert.
+- Trwały zapis, odczyt i edycja zleceń oraz ofert z kontrolą dostępu.
 - Przeglądanie ogłoszeń według kategorii i lokalizacji.
-- Odpowiedź wykonawcy na zlecenie.
-- Prywatne rozmowy dostępne wyłącznie uczestnikom.
-- Zgłaszanie naruszeń i podstawowa moderacja.
-- Zasady ochrony danych i bezpieczna obsługa formularzy.
+- Odpowiedzi na zlecenia i prywatne rozmowy dostępne wyłącznie uprawnionym uczestnikom.
+- Zgłaszanie naruszeń, podstawowa moderacja i ochrona danych.
 
-Płatności i zaawansowane automatyczne dopasowanie
-nie są częścią proponowanego początkowego zakresu.
+Płatności i zaawansowane automatyczne dopasowanie pozostają poza początkowym MVP. Zasady pracy z AI/LLM dotyczą procesu rozwoju, nie potwierdzają funkcji AI w produkcie.
 
 ## Walidacja i kolejne kroki
 
-Proponowana kolejność:
-1. Ujednolicić dokumentację z kierunkiem usług lokalnych.
-2. Przetestować demo z klientami i wykonawcami.
-3. Wybrać ograniczony obszar oraz kategorie pilotażu.
-4. Ustalić architekturę, koszt i harmonogram MVP.
-5. Wdrożyć podstawowy proces obsługi zlecenia.
-6. Uruchomić pilotaż i ocenić wyniki.
+1. Domknąć dokumentację oraz brakujące zasady produktu i dostępu.
+2. Sprawdzić bazę, właściciela danych i RLS, a następnie zapis, trwałość i odczyt z różnych kont.
+3. Przetestować interfejs na Androidzie oraz pełny proces zlecenia.
+4. Wybrać ograniczony obszar i kategorie pilotażu oraz uzgodnić koszt i harmonogram.
+5. Po osobnym zatwierdzeniu wdrożyć pilotaż z klientami i wykonawcami.
 
-W pilotażu mierzyć:
-- Liczbę opublikowanych zleceń.
-- Odsetek zleceń z odpowiedzią wykonawcy.
-- Czas do pierwszej odpowiedzi.
-- Liczbę kontaktów prowadzących do wykonania usługi.
-- Powroty klientów i wykonawców.
-
-Lokalizacja, liczba uczestników i cele liczbowe pilotażu:
-do ustalenia.
+W pilotażu mierzyć liczbę opublikowanych zleceń, odsetek z odpowiedzią wykonawcy, czas do pierwszej odpowiedzi, kontakty prowadzące do wykonania usługi oraz powroty klientów i wykonawców. Lokalizacja, liczba uczestników i cele liczbowe pozostają do ustalenia.
 
 ## Model biznesowy i finansowanie
 
-Model przychodów: nieustalony, wymaga walidacji.
-Budżet MVP i kwota finansowania: do oszacowania.
+Model przychodów wymaga walidacji. Budżet MVP i kwota finansowania pozostają do oszacowania. Ewentualne środki mają służyć rozwojowi MVP, bezpieczeństwu, moderacji i pozyskaniu uczestników pilotażu. Każda płatna usługa wymaga osobnej zgody właściciela.
 
-Planowane przeznaczenie ewentualnych środków:
-rozwój funkcjonalnego MVP, bezpieczeństwo,
-moderacja i pozyskanie uczestników pilotażu.
-
-Ten dokument nie przedstawia potwierdzonej trakcji,
-przychodów ani zweryfikowanego popytu.
+Dokument nie przedstawia potwierdzonej trakcji, przychodów ani zweryfikowanego popytu.
 
 ## Pitch
 
-Fix&Spacebook ma ułatwiać znalezienie lokalnej pomocy:
-klient opisuje potrzebę, a wykonawca przedstawia
-usługi i obszar działania — w jednym miejscu.
+Fix&Spacebook ma ułatwiać znalezienie lokalnej pomocy: klient opisuje potrzebę, a wykonawca przedstawia usługi i obszar działania — w jednym miejscu.
