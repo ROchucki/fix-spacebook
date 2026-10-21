@@ -37,9 +37,7 @@ function sessionStatus() {
 function errorText(error) {
   const code = error && error.code;
   if (code === "invalid_credentials")
-    return "Logowanie odrzucone. Kod: " + error.code
-      + "; status: " + error.status
-      + "; szczegóły: " + error.message;
+    return "Nieprawidłowy adres e-mail lub hasło.";
   if (code === "email_not_confirmed")
     return "Najpierw potwierdź adres e-mail.";
   if (code === "weak_password")
@@ -121,14 +119,15 @@ async function init() {
   render();
   if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
     tell("Obsługa kont oczekuje na konfigurację Supabase.");
-    return;
+    return null;
   }
+  let subscription;
   try {
     const url = new URL(SUPABASE_URL);
     if (url.protocol !== "https:" ||
         !SUPABASE_PUBLISHABLE_KEY.startsWith("sb_publishable_")) {
       tell("Sprawdź Project URL i publiczny klucz Supabase.");
-      return;
+      return null;
     }
     const { createClient } = await import(
       "https://esm.sh/@supabase/supabase-js@2"
@@ -137,20 +136,28 @@ async function init() {
       SUPABASE_URL,
       SUPABASE_PUBLISHABLE_KEY
     );
-    client.auth.onAuthStateChange((event, nextSession) => {
+    const { data: listener } = client.auth.onAuthStateChange((event, nextSession) => {
       session = nextSession;
       render();
       if (!busy) sessionStatus();
     });
+    subscription = listener.subscription;
     const { data, error } = await client.auth.getSession();
     if (error) throw error;
     session = data.session;
     busy = false;
     render();
     sessionStatus();
+    return client;
   } catch (error) {
+    subscription?.unsubscribe();
+    client = null;
+    session = null;
+    busy = true;
+    render();
     tell("Nie udało się uruchomić kont. Sprawdź konfigurację i połączenie.");
+    return null;
   }
 }
 
-window.fixSupabaseReady = init().then(() => client);
+window.fixSupabaseReady = init();
