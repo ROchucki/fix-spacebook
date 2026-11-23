@@ -134,6 +134,22 @@ powodem decyzji i dalszym krokiem.
 - Po wykonaniu zatwierdzonych zmian sprawdzamy zapis i podajemy rzeczywisty wynik oraz pozostałe ograniczenia, bez kolejnego pliku podsumowania.
 - Zasady korzystania z LLM przy pracy nad projektem nie oznaczają wdrożenia AI jako funkcji produktu.
 
+## Świadome pominięcie diagnostyki — 2026-11-23
+
+Domyślnie najpierw ustalamy przyczynę błędu. Jeśli Ryszard
+wskazuje przyczynę lub jednoznacznie poleca pominąć dalszą
+diagnostykę, przyjmujemy to jako założenie robocze
+i przechodzimy do rozwiązania. Nie wymagamy ponownego
+potwierdzania tej samej decyzji.
+
+Powód: ograniczenie powtarzanych kontroli i przestojów
+w pracy. Istotne ryzyko wskazujemy krótko. Założenia
+nie przedstawiamy jako technicznie potwierdzonego faktu.
+
+Pominięcie diagnostyki nie zastępuje wymaganej zgody
+na konkretny zapis, usunięcie danych, zmianę uprawnień
+ani działanie płatne.
+
 ## Najważniejsza zasada
 
 Najpierw prosty, użyteczny i bezpieczny produkt.
